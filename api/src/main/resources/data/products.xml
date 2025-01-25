@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<products>
+    <product>
+        <categoryId>101</categoryId>
+        <description>Smartphone</description>
+        <id>2</id>
+        <imageUrl>http://example.com/phone.jpg</imageUrl>
+        <price>499.99</price>
+        <stockQuantity>20</stockQuantity>
+        <title>Phone</title>
+    </product>
+    <product>
+        <categoryId>101</categoryId>
+        <description>High-performance laptop (Updated)</description>
+        <id>3</id>
+        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <price>1099.99</price>
+        <stockQuantity>5</stockQuantity>
+        <title>Laptop </title>
+    </product>
+</products>

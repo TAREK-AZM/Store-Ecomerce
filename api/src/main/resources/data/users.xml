@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<users>
+    <user>
+        <address>123 Main St, Springfield</address>
+        <email>john.doe@example.com</email>
+        <firstName>John</firstName>
+        <id>1</id>
+        <lastName>Doe</lastName>
+        <phoneNumber>123-456-7890</phoneNumber>
+        <username>john_doe</username>
+    </user>
+    <user>
+        <address>456 Elm St, Springfield</address>
+        <email>jane.doe@example.com</email>
+        <firstName>Jane</firstName>
+        <id>2</id>
+        <lastName>Doe</lastName>
+        <phoneNumber>987-654-3210</phoneNumber>
+        <username>jane_doe</username>
+    </user>
+    <user>
+        <address>789 Oak St, Springfield</address>
+        <email>alice.smith@example.com</email>
+        <firstName>Alice</firstName>
+        <id>3</id>
+        <lastName>Smith</lastName>
+        <phoneNumber>555-123-4567</phoneNumber>
+        <username>alice_smith</username>
+    </user>
+    <user>
+        <address>789 Oak St, Springfield</address>
+        <email>alazami.tarek@example.com</email>
+        <firstName>tarek</firstName>
+        <id>4</id>
+        <lastName>alazami</lastName>
+        <phoneNumber>0638-5575-31</phoneNumber>
+        <username>tarek_alazami</username>
+    </user>
+</users>

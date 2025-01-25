@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<commands>
+    <command>
+        <date>2023-10-01</date>
+        <id>1</id>
+        <status>Pending</status>
+        <userId>101</userId>
+    </command>
+    <command>
+        <date>2023-10-02</date>
+        <id>2</id>
+        <status>Shipped</status>
+        <userId>102</userId>
+    </command>
+</commands>

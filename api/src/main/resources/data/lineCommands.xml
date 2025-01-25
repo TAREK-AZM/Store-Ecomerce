@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lineCommands>
+    <lineCommand>
+        <commandId>1</commandId>
+        <id>2</id>
+        <productId>202</productId>
+        <quantity>1</quantity>
+    </lineCommand>
+    <lineCommand>
+        <commandId>2</commandId>
+        <id>3</id>
+        <productId>203</productId>
+        <quantity>3</quantity>
+    </lineCommand>
+</lineCommands>
