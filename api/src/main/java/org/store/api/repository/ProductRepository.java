@@ -8,14 +8,19 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Repository
 public class ProductRepository {
 
     private static final String PRODUCTS_FILE = "src/main/resources/data/products.xml";
+    private static final String PRODUCTS_XSD = "src/main/resources/data/products.xsd";
 
     // Read all products from the XML file
     public List<Product> findAll() throws Exception {
-        ProductsWrapper wrapper = XmlUtil.readXml(PRODUCTS_FILE, ProductsWrapper.class);
+        ProductsWrapper wrapper = XmlUtil.readXml(PRODUCTS_FILE, ProductsWrapper.class,PRODUCTS_XSD);
         return wrapper.getProducts();
     }
 
@@ -33,7 +38,7 @@ public class ProductRepository {
         products.add(product); // Add the new/updated product
         ProductsWrapper wrapper = new ProductsWrapper();
         wrapper.setProducts(products);
-        XmlUtil.writeXml(PRODUCTS_FILE, wrapper);
+        XmlUtil.writeXml(PRODUCTS_FILE, wrapper,PRODUCTS_XSD);
     }
 
     // Delete a product by ID
@@ -42,6 +47,6 @@ public class ProductRepository {
         products.removeIf(product -> product.getId().equals(id)); // Remove the product
         ProductsWrapper wrapper = new ProductsWrapper();
         wrapper.setProducts(products);
-        XmlUtil.writeXml(PRODUCTS_FILE, wrapper);
+        XmlUtil.writeXml(PRODUCTS_FILE, wrapper,PRODUCTS_XSD);
     }
 }

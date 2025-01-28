@@ -12,10 +12,11 @@ import java.util.Optional;
 public class UserRepository {
 
     private static final String USERS_FILE = "src/main/resources/data/users.xml";
+    private static final String USERS_XSD = "src/main/resources/data/users.xsd"; // Path to XSD
 
     // Read all users from the XML file
     public List<User> findAll() throws Exception {
-        UsersWrapper wrapper = XmlUtil.readXml(USERS_FILE, UsersWrapper.class);
+        UsersWrapper wrapper = XmlUtil.readXml(USERS_FILE, UsersWrapper.class,USERS_XSD);
         return wrapper.getUsers();
     }
 
@@ -33,7 +34,7 @@ public class UserRepository {
         users.add(user); // Add the new/updated user
         UsersWrapper wrapper = new UsersWrapper();
         wrapper.setUsers(users);
-        XmlUtil.writeXml(USERS_FILE, wrapper);
+        XmlUtil.writeXml(USERS_FILE, wrapper,USERS_XSD);
     }
 
     // Delete a user by ID
@@ -42,7 +43,7 @@ public class UserRepository {
         users.removeIf(user -> user.getId().equals(id)); // Remove the user
         UsersWrapper wrapper = new UsersWrapper();
         wrapper.setUsers(users);
-        XmlUtil.writeXml(USERS_FILE, wrapper);
+        XmlUtil.writeXml(USERS_FILE, wrapper,USERS_XSD);
     }
 }
 

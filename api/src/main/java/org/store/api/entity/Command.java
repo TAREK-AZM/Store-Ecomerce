@@ -2,8 +2,9 @@ package org.store.api.entity;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
+import jakarta.xml.bind.annotation.XmlType;
 
+import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlRootElement(name = "command")
+@XmlType(propOrder = {"id", "status", "date", "userId"})
 public class Command {
 
     private Long id;

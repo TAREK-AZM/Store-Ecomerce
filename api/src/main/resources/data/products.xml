@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <products>
     <product>
-        <categoryId>101</categoryId>
-        <description>Smartphone</description>
-        <id>2</id>
-        <imageUrl>http://example.com/phone.jpg</imageUrl>
-        <price>499.99</price>
-        <stockQuantity>20</stockQuantity>
-        <title>Phone</title>
+        <id>1</id>
+        <title>Smartphone X</title>
+        <description>A high-end smartphone with advanced features.</description>
+        <price>799.99</price>
+        <stockQuantity>50</stockQuantity>
+        <imageUrl>http://example.com/smartphone-x.jpg</imageUrl>
+        <category>Phone</category>
     </product>
     <product>
-        <categoryId>101</categoryId>
-        <description>High-performance laptop (Updated)</description>
+        <id>2</id>
+        <title>Gaming Laptop</title>
+        <description>A powerful laptop designed for gaming and productivity.</description>
+        <price>1499.99</price>
+        <stockQuantity>10</stockQuantity>
+        <imageUrl>http://example.com/gaming-laptop.jpg</imageUrl>
+        <category>Phone</category>
+    </product>
+    <product>
         <id>3</id>
-        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <title>Wireless Earbuds</title>
+        <description>Noise-cancelling wireless earbuds with long battery life.</description>
+        <price>199.99</price>
+        <stockQuantity>100</stockQuantity>
+        <imageUrl>http://example.com/wireless-earbuds.jpg</imageUrl>
+        <category>Laptob</category>
+    </product>
+    <product>
+        <id>4</id>
+        <title>4K Smart TV</title>
+        <description>A 55-inch 4K Ultra HD Smart TV with HDR support.</description>
+        <price>899.99</price>
+        <stockQuantity>15</stockQuantity>
+        <imageUrl>http://example.com/4k-smart-tv.jpg</imageUrl>
+        <category>Pc</category>
+    </product>
+    <product>
+        <id>10</id>
+        <title>Laptop </title>
+        <description>High-performance laptop (Updated)</description>
         <price>1099.99</price>
         <stockQuantity>5</stockQuantity>
-        <title>Laptop </title>
+        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <category>Phone</category>
     </product>
 </products>

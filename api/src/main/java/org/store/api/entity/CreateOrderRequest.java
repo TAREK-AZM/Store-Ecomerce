@@ -1,15 +1,20 @@
 package org.store.api.entity;
 
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
-@XmlRootElement(name = "lineCommands")
-public class LineCommandsWrapper {
-
+public class CreateOrderRequest {
+    private Command command;
     private List<LineCommand> lineCommands;
 
-    @XmlElement(name = "lineCommand")
+    // Getters and setters
+    public Command getCommand() {
+        return command;
+    }
+
+    public void setCommand(Command command) {
+        this.command = command;
+    }
+
     public List<LineCommand> getLineCommands() {
         return lineCommands;
     }

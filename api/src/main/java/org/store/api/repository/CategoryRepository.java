@@ -12,10 +12,11 @@ import java.util.Optional;
 public class CategoryRepository {
 
     private static final String CATEGORIES_FILE = "src/main/resources/data/categories.xml";
+    private static final String CATEGORIES_XSD = "src/main/resources/data/categories.xsd";
 
     // Read all categories from the XML file
     public List<Category> findAll() throws Exception {
-        CategoriesWrapper wrapper = XmlUtil.readXml(CATEGORIES_FILE, CategoriesWrapper.class);
+        CategoriesWrapper wrapper = XmlUtil.readXml(CATEGORIES_FILE, CategoriesWrapper.class,CATEGORIES_XSD);
         return wrapper.getCategories();
     }
 
@@ -33,7 +34,7 @@ public class CategoryRepository {
         categories.add(category); // Add the new/updated category
         CategoriesWrapper wrapper = new CategoriesWrapper();
         wrapper.setCategories(categories);
-        XmlUtil.writeXml(CATEGORIES_FILE, wrapper);
+        XmlUtil.writeXml(CATEGORIES_FILE, wrapper,CATEGORIES_XSD);
     }
 
     // Delete a category by ID
@@ -42,6 +43,6 @@ public class CategoryRepository {
         categories.removeIf(category -> category.getId().equals(id)); // Remove the category
         CategoriesWrapper wrapper = new CategoriesWrapper();
         wrapper.setCategories(categories);
-        XmlUtil.writeXml(CATEGORIES_FILE, wrapper);
+        XmlUtil.writeXml(CATEGORIES_FILE, wrapper,CATEGORIES_XSD);
     }
 }

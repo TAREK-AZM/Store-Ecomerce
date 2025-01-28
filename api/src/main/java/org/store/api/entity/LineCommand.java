@@ -2,35 +2,64 @@ package org.store.api.entity;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.xml.bind.annotation.XmlType;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@XmlRootElement(name = "lineCommand") // Root element for XML
+//@XmlRootElement(name = "lineCommand")
+@XmlType(propOrder = {"id", "quantity", "productId", "commandId"})
 public class LineCommand {
+
     private Long id;
     private int quantity;
-    private Long productId; // Reference to the product
-    private Long commandId; // Reference to the command
+    private Long productId;
+    private Long commandId;
 
-    // Getters with @XmlElement annotations
-    @XmlElement
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    // Default constructor required for JAXB
+    public LineCommand() {
+    }
 
-    @XmlElement
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
+    @XmlElement(required = true)
+    public Long getId() {
+        return id;
+    }
 
-    @XmlElement
-    public Long getProductId() { return productId; }
-    public void setProductId(Long productId) { this.productId = productId; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    @XmlElement
-    public Long getCommandId() { return commandId; }
-    public void setCommandId(Long commandId) { this.commandId = commandId; }
+    @XmlElement(required = true)
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @XmlElement(required = true)
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    @XmlElement(required = true)
+    public Long getCommandId() {
+        return commandId;
+    }
+
+    public void setCommandId(Long commandId) {
+        this.commandId = commandId;
+    }
+
+    @Override
+    public String toString() {
+        return "LineCommand{" +
+                "id=" + id +
+                ", quantity=" + quantity +
+                ", productId=" + productId +
+                ", commandId=" + commandId +
+                '}';
+    }
 }

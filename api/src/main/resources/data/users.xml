@@ -1,39 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
     <user>
-        <address>123 Main St, Springfield</address>
-        <email>john.doe@example.com</email>
-        <firstName>John</firstName>
         <id>1</id>
+        <firstName>John</firstName>
         <lastName>Doe</lastName>
-        <phoneNumber>123-456-7890</phoneNumber>
+        <email>john.doe@example.com</email>
+        <phoneNumber>0638557931</phoneNumber>
+        <address>123 Main St, Springfield</address>
         <username>john_doe</username>
     </user>
     <user>
-        <address>456 Elm St, Springfield</address>
-        <email>jane.doe@example.com</email>
-        <firstName>Jane</firstName>
         <id>2</id>
-        <lastName>Doe</lastName>
-        <phoneNumber>987-654-3210</phoneNumber>
-        <username>jane_doe</username>
-    </user>
-    <user>
-        <address>789 Oak St, Springfield</address>
-        <email>alice.smith@example.com</email>
-        <firstName>Alice</firstName>
-        <id>3</id>
+        <firstName>Jane</firstName>
         <lastName>Smith</lastName>
-        <phoneNumber>555-123-4567</phoneNumber>
-        <username>alice_smith</username>
+        <email>jane.smith@example.com</email>
+        <phoneNumber>9876543210</phoneNumber>
+        <address>456 Elm St, Springfield</address>
+        <username>jane_smith</username>
     </user>
     <user>
+        <id>3</id>
+        <firstName>Alice</firstName>
+        <lastName>Johnson</lastName>
+        <email>alice.johnson@example.com</email>
+        <phoneNumber>5551234567</phoneNumber>
         <address>789 Oak St, Springfield</address>
-        <email>alazami.tarek@example.com</email>
-        <firstName>tarek</firstName>
+        <username>alice_johnson</username>
+    </user>
+    <user>
         <id>4</id>
-        <lastName>alazami</lastName>
-        <phoneNumber>0638-5575-31</phoneNumber>
+        <firstName>Tarek</firstName>
+        <lastName>Al Azami</lastName>
+        <email>tarek.alazami@example.com</email>
+        <phoneNumber>0638557531</phoneNumber>
+        <address>321 Pine St, Springfield</address>
         <username>tarek_alazami</username>
+    </user>
+    <user>
+        <id>5</id>
+        <firstName>Bob</firstName>
+        <lastName>Brown</lastName>
+        <email>bob.brown@example.com</email>
+        <phoneNumber>2223334444</phoneNumber>
+        <address>654 Cedar St, Springfield</address>
+        <username>bob_brown</username>
+    </user>
+    <user>
+        <id>6</id>
+        <firstName>Charlie</firstName>
+        <lastName>Davis</lastName>
+        <email>charlie.davis@example.com</email>
+        <phoneNumber>3334445555</phoneNumber>
+        <address>987 Maple St, Springfield</address>
+        <username>charlie_davis</username>
+    </user>
+    <user>
+        <id>7</id>
+        <firstName>Tarek</firstName>
+        <lastName>Al Azami</lastName>
+        <email>tarek.alazami1@example.com</email>
+        <phoneNumber>1234567890</phoneNumber>
+        <address>123 Main St, Springfield</address>
+        <username>TAREK1</username>
+    </user>
+    <user>
+        <id>8</id>
+        <firstName>salim</firstName>
+        <lastName>AL AZAMI</lastName>
+        <email>TAREKALAZAMI1@example.com</email>
+        <phoneNumber>1234567890</phoneNumber>
+        <address>123 Main St, Springfield</address>
+        <username>Mohamed</username>
+    </user>
+    <user>
+        <id>9</id>
+        <firstName>salim</firstName>
+        <lastName>AL AZAMI</lastName>
+        <email>ishak@example.com</email>
+        <phoneNumber>1234567890</phoneNumber>
+        <address>123 Main St, Springfield</address>
+        <username>ishak</username>
     </user>
 </users>

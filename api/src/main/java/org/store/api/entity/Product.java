@@ -2,6 +2,8 @@ package org.store.api.entity;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
+
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +12,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlRootElement(name = "product")
+@XmlType(propOrder = {"id", "title", "description", "price","stockQuantity","imageUrl","category"})
+
 public class Product {
 
     private Long id;
@@ -18,7 +22,7 @@ public class Product {
     private Double price;
     private Integer stockQuantity;
     private String imageUrl;
-    private Long categoryId; // Reference to the category by ID
+    private String category; // Reference to the category by ID
 
     // Getters with @XmlElement annotations
     @XmlElement
@@ -40,5 +44,5 @@ public class Product {
     public String getImageUrl() { return imageUrl; }
 
     @XmlElement
-    public Long getCategoryId() { return categoryId; }
+    public String getCategory() { return category; }
 }

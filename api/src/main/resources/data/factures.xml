@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factures>
+    <facture>
+        <id>1</id>
+        <commandId>101</commandId>
+        <userId>201</userId>
+        <invoiceDate>2023-10-01</invoiceDate>
+        <totalAmount>150.75</totalAmount>
+        <status>PAID</status>
+    </facture>
+    <facture>
+        <id>2</id>
+        <commandId>102</commandId>
+        <userId>202</userId>
+        <invoiceDate>2023-10-02</invoiceDate>
+        <totalAmount>200.50</totalAmount>
+        <status>UNPAID</status>
+    </facture>
+</factures>

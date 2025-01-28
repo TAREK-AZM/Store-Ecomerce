@@ -33,4 +33,6 @@ public class LineCommandService {
     public void deleteLineCommand(Long id) throws Exception {
         lineCommandRepository.deleteById(id);
     }
+
+
 }
