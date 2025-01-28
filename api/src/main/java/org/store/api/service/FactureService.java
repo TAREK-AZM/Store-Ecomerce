@@ -38,7 +38,7 @@ public class FactureService {
 
         // Create new facture
         Facture facture = new Facture();
-        facture.setId(generateFactureId());
+        facture.setId(generateFactureId());// set the generatedID for the facture
         facture.setCommandId(command.getId());
         facture.setUserId(command.getUserId());
         facture.setInvoiceDate(LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
@@ -51,7 +51,7 @@ public class FactureService {
         // Generate PDF
         generatePdf(facture, lineCommands);
 
-        return facture;
+        return facture;// return the facture ID
     }
 
     private double calculateTotalAmount(List<LineCommand> lineCommands) throws Exception {
@@ -173,4 +173,6 @@ public class FactureService {
     public List<Facture> getUserFactures(Long userId) throws Exception {
         return factureRepository.findFacturesByUserId(userId);
     }
+
+// find the facture ID genereated
 }

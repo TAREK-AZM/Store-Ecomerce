@@ -44,7 +44,7 @@ public class CommandService {
         return commandRepository.findById(id);
     }
 
-    public void createOrder(Command command, List<LineCommand> lineCommands) throws Exception {
+    public Long createOrder(Command command, List<LineCommand> lineCommands) throws Exception {
         // Save command
         commandRepository.save(command);
 
@@ -55,11 +55,8 @@ public class CommandService {
             lineCommandRepository.save(line);
         }
 
-        // Here i want create facture xml
-
-
         // Generate facture
-        factureService.createFacture(command, lineCommands);
+        return factureService.createFacture(command, lineCommands).getId();
 
     }
 

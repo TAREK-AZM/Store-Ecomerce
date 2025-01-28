@@ -88,4 +88,5 @@ public class FactureController {
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("An error occurred: " + e.getMessage());
     }
+
 }

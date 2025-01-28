@@ -28,7 +28,7 @@ public class FactureRepository {
                 .findFirst();
     }
 
-    public void save(Facture facture) throws Exception {
+    public Long save(Facture facture) throws Exception {
         List<Facture> factures = findAll();
 
         // If factures is null, initialize it as an empty list
@@ -49,6 +49,8 @@ public class FactureRepository {
         FacturesWrapper wrapper = new FacturesWrapper();
         wrapper.setFactures(factures);
         XmlUtil.writeXml(FACTURES_FILE, wrapper, FACTURES_XSD);
+
+        return facture.getId();
     }
 
 
