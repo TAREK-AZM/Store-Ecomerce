@@ -19,6 +19,11 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    // Get all products xpath feltered
+    public List<Product> getAllProductsXpath(String xpathExpression) throws Exception {
+        return productRepository.findByXPath( xpathExpression);
+    }
+
     // Get a product by ID
     public Optional<Product> getProductById(Long id) throws Exception {
         return productRepository.findById(id);

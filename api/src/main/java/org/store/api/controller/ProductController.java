@@ -21,6 +21,13 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    // Get all products Xpath
+     @GetMapping("/xpath/{xpathExpression}")
+    public List<Product> getAllProductsXpathFilters(@PathVariable String xpathExpression) throws Exception {
+         System.out.println("<----------"+xpathExpression+"--------------->");
+        return productService.getAllProductsXpath(xpathExpression);
+    }
+
     // Get a product by ID
     @GetMapping("/{id}")
     public Optional<Product> getProductById(@PathVariable Long id) throws Exception {

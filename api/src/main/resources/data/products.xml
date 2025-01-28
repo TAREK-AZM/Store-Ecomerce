@@ -34,7 +34,7 @@
         <price>899.99</price>
         <stockQuantity>15</stockQuantity>
         <imageUrl>http://example.com/4k-smart-tv.jpg</imageUrl>
-        <category>Pc</category>
+        <category>Electronics</category>
     </product>
     <product>
         <id>10</id>
@@ -43,6 +43,6 @@
         <price>1099.99</price>
         <stockQuantity>5</stockQuantity>
         <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Phone</category>
+        <category>Electronics</category>
     </product>
 </products>

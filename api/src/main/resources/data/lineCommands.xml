@@ -22,24 +22,24 @@
         <id>11</id>
         <quantity>2</quantity>
         <productId>1</productId>
-        <commandId>10</commandId>
+        <commandId>11</commandId>
     </lineCommand>
     <lineCommand>
         <id>2</id>
         <quantity>1</quantity>
         <productId>2</productId>
-        <commandId>10</commandId>
+        <commandId>11</commandId>
     </lineCommand>
     <lineCommand>
         <id>12</id>
         <quantity>1</quantity>
         <productId>2</productId>
-        <commandId>10</commandId>
+        <commandId>11</commandId>
     </lineCommand>
     <lineCommand>
         <id>18</id>
         <quantity>1</quantity>
         <productId>2</productId>
-        <commandId>10</commandId>
+        <commandId>11</commandId>
     </lineCommand>
 </lineCommands>

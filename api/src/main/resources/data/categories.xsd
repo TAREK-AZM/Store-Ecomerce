@@ -19,6 +19,10 @@
             </xs:sequence>
         </xs:complexType>
 
+        <xs:unique name="uniqueCategoryName">
+            <xs:selector xpath="category"/>
+            <xs:field xpath="name"/>
+        </xs:unique>
         <xs:unique name="uniqueCategory">
             <xs:selector xpath="category"/>
             <xs:field xpath="id"/>
