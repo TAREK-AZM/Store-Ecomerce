@@ -7,18 +7,20 @@
             <head>
                 <title>Invoice</title>
                 <style>
-                    body { font-family: Arial, sans-serif; }
+                    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
                     .invoice-header { background-color: #007BFF; color: white; padding: 20px; text-align: center; }
                     .invoice-details { margin: 20px; }
-                    .invoice-table { width: 100%; border-collapse: collapse; }
-                    .invoice-table th, .invoice-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    .invoice-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                    .invoice-table th, .invoice-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
                     .invoice-table th { background-color: #f2f2f2; }
-                    .total-amount { text-align: right; font-weight: bold; margin-top: 20px; }
-                    .footer { text-align: center; margin-top: 40px; font-style: italic; }
+                    .total-amount { text-align: right; font-weight: bold; margin-top: 20px; font-size: 18px; }
+                    .footer { text-align: center; margin-top: 40px; font-style: italic; color: #555; }
+                    .company-logo { max-width: 150px; margin-bottom: 20px; }
                 </style>
             </head>
             <body>
                 <div class="invoice-header">
+                    <img src="https://example.com/logo.png" alt="Company Logo" class="company-logo"/>
                     <h1>INVOICE</h1>
                 </div>
                 <div class="invoice-details">
@@ -52,7 +54,7 @@
                 </div>
                 <div class="footer">
                     <p>Thank you for your business!</p>
-                    <p>Contact us at support@store.com</p>
+                    <p>Contact us at support@store.com | Phone: (123) 456-7890</p>
                 </div>
             </body>
         </html>

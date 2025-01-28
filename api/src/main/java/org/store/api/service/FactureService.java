@@ -8,22 +8,16 @@ import org.store.api.repository.FactureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.io.File;
+
 import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.OutputStream;
-import java.io.InputStream;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
-import javax.xml.transform.*;
-import javax.xml.transform.stream.*;
-import org.xhtmlrenderer.pdf.ITextRenderer;
-
-
-import java.io.FileNotFoundException;
-
+import java.util.stream.Stream;  // Added this import
 @Service
 public class FactureService {
 
@@ -33,20 +27,29 @@ public class FactureService {
     @Autowired
     private ProductService productService;
 
+    private static final String PDF_DIRECTORY = "src/main/resources/factures/";
+    private static final Font TITLE_FONT = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+    private static final Font HEADER_FONT = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+    private static final Font NORMAL_FONT = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
+
     public Facture createFacture(Command command, List<LineCommand> lineCommands) throws Exception {
+        // Calculate total amount
         double totalAmount = calculateTotalAmount(lineCommands);
 
+        // Create new facture
         Facture facture = new Facture();
         facture.setId(generateFactureId());
         facture.setCommandId(command.getId());
         facture.setUserId(command.getUserId());
-        facture.setInvoiceDate(LocalDate.now().toString());
+        facture.setInvoiceDate(LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
         facture.setTotalAmount(totalAmount);
         facture.setStatus("CREATED");
-        facture.setLines(lineCommands);
 
+        // Save facture to XML
         factureRepository.save(facture);
-        generatePdf(facture);
+
+        // Generate PDF
+        generatePdf(facture, lineCommands);
 
         return facture;
     }
@@ -55,90 +58,119 @@ public class FactureService {
         double total = 0;
         for (LineCommand line : lineCommands) {
             Product product = productService.getProductById(line.getProductId())
-                    .orElseThrow(() -> new Exception("Product not found"));
+                    .orElseThrow(() -> new Exception("Product not found: " + line.getProductId()));
             total += product.getPrice() * line.getQuantity();
         }
-        return total;
+        return Math.round(total * 100.0) / 100.0; // Round to 2 decimal places
     }
 
     private Long generateFactureId() {
         return System.currentTimeMillis();
     }
 
-    public void generatePdf(Facture facture) throws Exception {
-        // Convert Facture to XML
-        String xmlContent = convertFactureToXml(facture);
-        File xmlFile = new File("factures.xml");
-        try (FileWriter writer = new FileWriter(xmlFile)) {
-            writer.write(xmlContent);
+    public void generatePdf(Facture facture, List<LineCommand> lineCommands) {
+        try {
+            Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+            String pdfPath = PDF_DIRECTORY + "facture_" + facture.getId() + ".pdf";
+            PdfWriter.getInstance(document, new FileOutputStream(pdfPath));
+
+            document.open();
+
+            // Add company logo/header
+            Paragraph header = new Paragraph("COMPANY NAME", TITLE_FONT);
+            header.setAlignment(Element.ALIGN_CENTER);
+            document.add(header);
+            document.add(Chunk.NEWLINE);
+
+            // Add invoice details
+            PdfPTable infoTable = new PdfPTable(2);
+            infoTable.setWidthPercentage(100);
+
+            addInfoCell(infoTable, "Invoice Number:", facture.getId().toString());
+            addInfoCell(infoTable, "Date:", facture.getInvoiceDate());
+            addInfoCell(infoTable, "Order Reference:", facture.getCommandId().toString());
+            addInfoCell(infoTable, "Customer ID:", facture.getUserId().toString());
+            document.add(infoTable);
+            document.add(Chunk.NEWLINE);
+
+            // Add items table
+            PdfPTable itemsTable = new PdfPTable(new float[]{4, 1, 2, 2});
+            itemsTable.setWidthPercentage(100);
+
+            // Add table headers
+            addTableHeader(itemsTable);
+
+            // Add line items
+            double subtotal = 0;
+            for (LineCommand line : lineCommands) {
+                Product product = productService.getProductById(line.getProductId())
+                        .orElseThrow(() -> new Exception("Product not found"));
+                double lineTotal = product.getPrice() * line.getQuantity();
+                subtotal += lineTotal;
+
+                itemsTable.addCell(new PdfPCell(new Phrase(product.getTitle(), NORMAL_FONT)));
+                itemsTable.addCell(new PdfPCell(new Phrase(String.valueOf(line.getQuantity()), NORMAL_FONT)));
+                itemsTable.addCell(new PdfPCell(new Phrase(String.format("$%.2f", product.getPrice()), NORMAL_FONT)));
+                itemsTable.addCell(new PdfPCell(new Phrase(String.format("$%.2f", lineTotal), NORMAL_FONT)));
+            }
+
+            document.add(itemsTable);
+            document.add(Chunk.NEWLINE);
+
+            // Add totals
+            PdfPTable totalsTable = new PdfPTable(2);
+            totalsTable.setWidthPercentage(40);
+            totalsTable.setHorizontalAlignment(Element.ALIGN_RIGHT);
+
+            addTotalRow(totalsTable, "Subtotal:", String.format("$%.2f", subtotal));
+            addTotalRow(totalsTable, "Tax (included):", String.format("$%.2f", facture.getTotalAmount() - subtotal));
+            addTotalRow(totalsTable, "Total:", String.format("$%.2f", facture.getTotalAmount()));
+
+            document.add(totalsTable);
+
+            // Add footer
+            document.add(Chunk.NEWLINE);
+            Paragraph footer = new Paragraph("Thank you for your business!", NORMAL_FONT);
+            footer.setAlignment(Element.ALIGN_CENTER);
+            document.add(footer);
+
+            document.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to generate PDF", e);
         }
-
-        // Transform XML to HTML using XSLT
-        transformXMLToHTML("factures.xml", "factures.xslt", "invoice.html");
-
-        // Convert HTML to PDF
-        HtmlToPdf.convertHtmlToPdf("invoice.html", "src/main/resources/factures/facture_" + facture.getId() + ".pdf");
     }
 
-    private String convertFactureToXml(Facture facture) throws Exception {
-        StringBuilder xml = new StringBuilder();
-        xml.append("<invoice>");
-        xml.append("<id>").append(facture.getId()).append("</id>");
-        xml.append("<date>").append(facture.getInvoiceDate()).append("</date>");
-        xml.append("<commandId>").append(facture.getCommandId()).append("</commandId>");
-        xml.append("<userId>").append(facture.getUserId()).append("</userId>");
-        xml.append("<totalAmount>").append(facture.getTotalAmount()).append("</totalAmount>");
-        xml.append("<lines>");
-        for (LineCommand line : facture.getLines()) {
-            xml.append("<line>");
-            xml.append("<product>").append(line.getProductId()).append("</product>");
-            xml.append("<quantity>").append(line.getQuantity()).append("</quantity>");
-            xml.append("<unitPrice>").append(productService.getProductById(line.getProductId()).get().getPrice()).append("</unitPrice>");
-            xml.append("<total>").append(line.getQuantity() * productService.getProductById(line.getProductId()).get().getPrice()).append("</total>");
-            xml.append("</line>");
-        }
-        xml.append("</lines>");
-        xml.append("</invoice>");
-        return xml.toString();
+    private void addTableHeader(PdfPTable table) {
+        Stream.of("Product", "Qty", "Price", "Total")
+                .forEach(columnTitle -> {
+                    PdfPCell header = new PdfPCell();
+                    header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    header.setBorderWidth(2);
+                    header.setPhrase(new Phrase(columnTitle, HEADER_FONT));
+                    table.addCell(header);
+                });
     }
 
-    public Optional<Facture> getFactureById(Long id) {
+    private void addInfoCell(PdfPTable table, String label, String value) {
+        table.addCell(new PdfPCell(new Phrase(label, HEADER_FONT)));
+        table.addCell(new PdfPCell(new Phrase(value, NORMAL_FONT)));
+    }
+
+    private void addTotalRow(PdfPTable table, String label, String value) {
+        table.addCell(new PdfPCell(new Phrase(label, HEADER_FONT)));
+        table.addCell(new PdfPCell(new Phrase(value, NORMAL_FONT)));
+    }
+
+    public Optional<Facture> getFactureById(Long id) throws Exception {
         return factureRepository.findById(id);
     }
 
-    public List<Facture> getAllFactures() {
+    public List<Facture> getAllFactures() throws Exception {
         return factureRepository.findAll();
     }
 
-    public List<Facture> getUserFactures(Long userId) {
-        return factureRepository.findByUserId(userId);
-    }
-
-    // Helper method for XML to HTML transformation
-    public static void transformXMLToHTML(String xmlPath, String xsltPath, String outputHtmlPath) throws Exception {
-        // Use the classpath to locate the XSLT file in the resources/data folder
-        InputStream xsltStream = FactureService.class.getClassLoader().getResourceAsStream("data/factures.xslt");
-        if (xsltStream == null) {
-            throw new FileNotFoundException("XSLT file not found: " + xsltPath);
-        }
-
-        TransformerFactory factory = TransformerFactory.newInstance();
-        Source xslt = new StreamSource(xsltStream);
-        Transformer transformer = factory.newTransformer(xslt);
-
-        Source xml = new StreamSource(new File(xmlPath));
-        transformer.transform(xml, new StreamResult(new FileOutputStream(outputHtmlPath)));
-    }
-
-    // Helper class for HTML to PDF conversion
-    public static class HtmlToPdf {
-        public static void convertHtmlToPdf(String htmlPath, String pdfPath) throws Exception {
-            try (OutputStream os = new FileOutputStream(pdfPath)) {
-                ITextRenderer renderer = new ITextRenderer();
-                renderer.setDocument(new File(htmlPath));
-                renderer.layout();
-                renderer.createPDF(os);
-            }
-        }
+    public List<Facture> getUserFactures(Long userId) throws Exception {
+        return factureRepository.findFacturesByUserId(userId);
     }
 }

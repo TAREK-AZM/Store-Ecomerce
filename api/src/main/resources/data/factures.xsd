@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://www.store.org/api/entity"
-           xmlns="http://www.store.org/api/entity"
-           elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <!-- Define the root element 'factures' -->
     <xs:element name="factures">
         <xs:complexType>
             <xs:sequence>
-                <!-- Each 'facture' element is of type 'factureType' and can occur multiple times -->
                 <xs:element name="facture" type="factureType" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <!-- Define the 'factureType' complex type -->
     <xs:complexType name="factureType">
         <xs:sequence>
             <xs:element name="id" type="xs:long"/>
@@ -25,4 +19,5 @@
             <xs:element name="status" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
+
 </xs:schema>

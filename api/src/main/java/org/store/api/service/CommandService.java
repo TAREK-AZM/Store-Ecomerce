@@ -48,14 +48,19 @@ public class CommandService {
         // Save command
         commandRepository.save(command);
 
+
         // Update line commands with command ID
         for (LineCommand line : lineCommands) {
             line.setCommandId(command.getId());
             lineCommandRepository.save(line);
         }
 
+        // Here i want create facture xml
+
+
         // Generate facture
         factureService.createFacture(command, lineCommands);
+
     }
 
     // Delete a command by ID

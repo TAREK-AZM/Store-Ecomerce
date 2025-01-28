@@ -30,4 +30,16 @@
         <productId>2</productId>
         <commandId>10</commandId>
     </lineCommand>
+    <lineCommand>
+        <id>12</id>
+        <quantity>1</quantity>
+        <productId>2</productId>
+        <commandId>10</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>18</id>
+        <quantity>1</quantity>
+        <productId>2</productId>
+        <commandId>10</commandId>
+    </lineCommand>
 </lineCommands>
