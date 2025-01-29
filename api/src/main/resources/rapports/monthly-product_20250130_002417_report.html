@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Monthly Store Report</title>
+        <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    th { background-color: #f2f2f2; }
+                    .summary { margin: 20px 0; padding: 15px; background-color: #f8f9fa; }
+                    .low-stock { background-color: #ffe6e6; }
+                </style>
+    </head>
+    <body>
+        <h1>Monthly Store Report</h1>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>Total Products: 5</p>
+            <p>Total Items in Stock: 225</p>
+            <p>Low Stock Items (Quantity &le; 10): 1</p>
+        </div>
+        <h2>Product Inventory</h2>
+        <table>
+            <tr>
+                <th>ID</th><th>Title</th><th>Category</th><th>Price ($)</th><th>Stock</th>
+            </tr>
+            <tr>
+                <td>4</td><td>4K Smart TV</td><td>Electronics</td><td>899.99</td><td>15</td>
+            </tr>
+            <tr>
+                <td>10</td><td>Laptop </td><td>Electronics</td><td>1,099.99</td><td>50</td>
+            </tr>
+            <tr>
+                <td>3</td><td>Wireless Earbuds</td><td>Laptob</td><td>199.99</td><td>100</td>
+            </tr>
+            <tr>
+                <td>1</td><td>Smartphone X</td><td>Phone</td><td>799.99</td><td>50</td>
+            </tr>
+            <tr class="low-stock">
+                <td>2</td><td>Gaming Laptop</td><td>Phone</td><td>1,499.99</td><td>10</td>
+            </tr>
+        </table>
+        <h2>Category Summary</h2>
+        <table>
+            <tr>
+                <th>Category</th><th>Number of Products</th><th>Total Stock</th>
+            </tr>
+            <tr>
+                <td>Phone</td><td>2</td><td>60</td>
+            </tr>
+            <tr>
+                <td>Phone</td><td>2</td><td>60</td>
+            </tr>
+            <tr>
+                <td>Laptob</td><td>1</td><td>100</td>
+            </tr>
+            <tr>
+                <td>Electronics</td><td>2</td><td>65</td>
+            </tr>
+        </table>
+    </body>
+</html>

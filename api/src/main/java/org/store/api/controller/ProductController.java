@@ -8,6 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import java.net.URLDecoder;
+import java.util.Collections;
+import java.nio.charset.StandardCharsets; // For specifying character encoding
+
+
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -21,11 +30,19 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    // Get all products Xpath
-     @GetMapping("/xpath/{xpathExpression}")
-    public List<Product> getAllProductsXpathFilters(@PathVariable String xpathExpression) throws Exception {
-         System.out.println("<----------"+xpathExpression+"--------------->");
-        return productService.getAllProductsXpath(xpathExpression);
+    // Get products by XPath expression
+    @GetMapping("/xpath/{xpathExpression}")
+    public ResponseEntity<List<Product>> getProductsByXPath(
+            @PathVariable String xpathExpression) throws Exception {
+        try {
+            // Decode the URL-encoded XPath expression
+            String decodedExpression = URLDecoder.decode(xpathExpression, StandardCharsets.UTF_8.toString());
+            List<Product> products = productService.getAllProductsXpath(decodedExpression);
+            return ResponseEntity.ok(products);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Collections.emptyList());
+        }
     }
 
     // Get a product by ID

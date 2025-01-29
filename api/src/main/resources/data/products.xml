@@ -41,7 +41,7 @@
         <title>Laptop </title>
         <description>High-performance laptop (Updated)</description>
         <price>1099.99</price>
-        <stockQuantity>5</stockQuantity>
+        <stockQuantity>50</stockQuantity>
         <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
         <category>Electronics</category>
     </product>

@@ -78,96 +78,171 @@ public class ProductRepository {
         XmlUtil.writeXml(PRODUCTS_FILE, wrapper,PRODUCTS_XSD);
     }
 
-     // Find products by an XPath expression
-        public List<Product> findByXPath(String xpathExpression) throws Exception {
-            List<Product> filteredProducts = new ArrayList<>();
 
-            // Initialize XML parsing
-            File xmlFile = new File(PRODUCTS_FILE);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xmlFile);
+         // Find products by XPath expression
+         // Enhanced findByXPath method supporting complex queries
+         public List<Product> findByXPath(String xpathExpression) throws Exception {
+             List<Product> results = new ArrayList<>();
+             File xmlFile = new File(PRODUCTS_FILE);
 
-            // Create XPath object
-            XPathFactory xPathFactory = XPathFactory.newInstance();
-            XPath xpath = xPathFactory.newXPath();
+             try {
+                 // Create DocumentBuilder with namespace awareness
+                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                 factory.setNamespaceAware(true);
+                 DocumentBuilder builder = factory.newDocumentBuilder();
 
-            String xpathExpression_t = "/products/product/category[text()='"+xpathExpression+"']";
+                 // Parse XML file
+                 Document doc = builder.parse(new FileInputStream(xmlFile));
 
-            // Evaluate XPath expression
-            XPathExpression expr = xpath.compile(xpathExpression_t);
-            System.out.println("<----compile the Xpath arived-------->");
-            NodeList nodeList = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+                 // Create XPath
+                 XPathFactory xPathFactory = XPathFactory.newInstance();
+                 XPath xpath = xPathFactory.newXPath();
 
-            // Iterate through the matching nodes and extract their IDs
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                String productIdString = nodeList.item(i).getTextContent();
-                Long productId = Long.parseLong(productIdString);
+                 // Process the XPath expression based on the query type
+                 String processedXPath = processXPathExpression(xpathExpression);
 
-                // Use the product ID to find the corresponding Product object
-                Optional<Product> productOpt = findById(productId);
-                productOpt.ifPresent(filteredProducts::add);
-            }
+                 // Evaluate XPath expression
+                 XPathExpression expr = xpath.compile(processedXPath);
+                 NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
 
-            return filteredProducts;
+                 // helper method to Process matching nodes
+                 results = convertNodesToProducts(nodes);
+             } catch (Exception e) {
+                 throw new Exception("Error searching products by XPath: " + e.getMessage());
+             }
+
+             return results;
+         }
+
+
+    // Helper method to process XPath expressions
+//    private String processXPathExpression(String rawExpression) {
+//        // If it's already a complex XPath expression, return as is
+//        if (rawExpression.startsWith("//") || rawExpression.contains("[") || rawExpression.contains("@")) {
+//            return rawExpression;
+//        }
+//
+//        // Check if it's a price range format (price_range:min-max)
+//        if (rawExpression.startsWith("price_range:")) {
+//            String[] range = rawExpression.split(":")[1].split("-");
+//            if (range.length == 2) {
+//                return String.format("//product[price >= %s and price <= %s]", range[0], range[1]);
+//            }
+//        }
+//
+//        // Check if it's a stock threshold format (stock_gt:value)
+//        if (rawExpression.startsWith("stock_gt:")) {
+//            String threshold = rawExpression.split(":")[1];
+//            System.out.println("------>threshold<-------"+threshold);
+//            return String.format("//product[stockQuantity > 10]");
+//        }
+//        String lowerExpression = rawExpression.toLowerCase().trim();
+//
+//        return String.format(
+//                "//product[contains(translate(category, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '%s') " +
+//                        "or contains(translate(title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '%s') " +
+//                        "or contains(translate(description, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '%s')]",
+//                lowerExpression, lowerExpression, lowerExpression
+//        );
+//    }
+
+
+    private String processXPathExpression(String rawExpression) {
+        // If it's already a complex XPath expression, return as is
+        if (rawExpression.startsWith("//") || rawExpression.contains("[") || rawExpression.contains("@")) {
+            return rawExpression;
         }
 
-//    // Find products by an XPath expression
-//    public List<Product> findByXPath(String xpathExpression) throws Exception {
-//        List<Product> filteredProducts = new ArrayList<>();
-//
-//        // Initialize XML parsing using getResourceAsStream() to load the file
-//        FileInputStream xmlInputStream = getClass().getClassLoader().getResourceAsStream(PRODUCTS_FILE);
-//        if (xmlInputStream == null) {
-//            throw new FileNotFoundException("XML file not found in classpath.");
-//        }
-//
-//        // Parse the document
-//        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-//        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-//        Document doc = dBuilder.parse(xmlInputStream);
-//
-//        // Log document parsing success
-//        System.out.println("@@@@@@@@@@@@@@@@@2the parsed file " + doc);
-//
-//        // Create XPath object
-//        XPathFactory xPathFactory = XPathFactory.newInstance();
-//        XPath xpath = xPathFactory.newXPath();
-//
-//        // Compile and evaluate the XPath expression
-//        XPathExpression expr = xpath.compile(xpathExpression);
-//        System.out.println("<----compiled the XPath expression-------->");
-//        NodeList nodeList = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-//
-//        // Log number of matching nodes
-//        System.out.println("==========product======"+nodeList+" Length: " + nodeList.getLength());
-//
-//        // Iterate through the matching nodes and extract the product elements
-//        for (int i = 0; i < nodeList.getLength(); i++) {
-//            // Get the entire <product> element (the parent node of <category>)
-//            Node productNode = nodeList.item(i).getParentNode(); // Get the parent <product> element
-//            System.out.println("==========product======"+productNode.getNodeName());
-//
-//            // Now, extract the product ID from the <product> element
-//            NodeList childNodes = productNode.getChildNodes();
-//            String productIdString = "";
-//            for (int j = 0; j < childNodes.getLength(); j++) {
-//                if ("id".equals(childNodes.item(j).getNodeName())) {
-//                    productIdString = childNodes.item(j).getTextContent();
-//                    break;
-//                }
-//            }
-//
-//            if (!productIdString.isEmpty()) {
-//                Long productId = Long.parseLong(productIdString); // Parse the product ID
-//
-//                // Use the product ID to find the corresponding Product object
-//                Optional<Product> productOpt = findById(productId);
-//                productOpt.ifPresent(filteredProducts::add);
-//            }
-//        }
-//
-//        return filteredProducts;
-//    }
+        // Check if it's a price range format (price_range:min-max)
+        if (rawExpression.startsWith("price_range:")) {
+            String[] range = rawExpression.split(":")[1].split("-");
+            if (range.length == 2) {
+                return String.format("//product[price >= %s and price <= %s]", range[0], range[1]);
+            }
+        }
+
+        // Check if it's a stock threshold format (stock_gt:value)
+        if (rawExpression.startsWith("stock_gt:")) {
+            String threshold = rawExpression.split(":")[1];
+            System.out.println("------>threshold<-------" + threshold);
+            return String.format("//product[stockQuantity > 10]");
+        }
+
+        // Split the rawExpression into individual words
+        String[] words = rawExpression.split("\\s+"); // Split by whitespace
+        StringBuilder xpathBuilder = new StringBuilder("//product[");
+
+        // Add conditions for each word
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i].toLowerCase(); // Convert word to lowercase for case-insensitive search
+            if (i > 0) {
+                xpathBuilder.append(" and ");
+            }
+            xpathBuilder.append(
+                    "(contains(translate(category, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '" + word + "') or " +
+                            "contains(translate(title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '" + word + "') or " +
+                            "contains(translate(description, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '" + word + "'))"
+            );
+        }
+
+        xpathBuilder.append("]");
+        return xpathBuilder.toString();
+    }
+
+    // Helper method to convert XML nodes to Product objects
+    private List<Product> convertNodesToProducts(NodeList nodes) {
+        List<Product> products = new ArrayList<>();
+
+        for (int i = 0; i < nodes.getLength(); i++) {
+            Node node = nodes.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Product product = new Product();
+                NodeList childNodes = node.getChildNodes();
+
+                for (int j = 0; j < childNodes.getLength(); j++) {
+                    Node childNode = childNodes.item(j);
+                    if (childNode.getNodeType() == Node.ELEMENT_NODE) {
+                        String content = childNode.getTextContent();
+                        setProductField(product, childNode.getNodeName(), content);
+                    }
+                }
+                products.add(product);
+            }
+        }
+        return products;
+    }
+
+    // Helper method to set product fields
+    private void setProductField(Product product, String fieldName, String value) {
+        try {
+            switch (fieldName) {
+                case "id":
+                    product.setId(Long.parseLong(value));
+                    break;
+                case "title":
+                    product.setTitle(value);
+                    break;
+                case "description":
+                    product.setDescription(value);
+                    break;
+                case "price":
+                    product.setPrice(Double.parseDouble(value));
+                    break;
+                case "stockQuantity":
+                    product.setStockQuantity(Integer.parseInt(value));
+                    break;
+                case "imageUrl":
+                    product.setImageUrl(value);
+                    break;
+                case "category":
+                    product.setCategory(value);
+                    break;
+            }
+        } catch (NumberFormatException e) {
+            // Log error but continue processing
+            System.err.println("Error parsing value for field " + fieldName + ": " + value);
+        }
+    }
+
 
 }
