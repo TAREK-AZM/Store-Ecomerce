@@ -78,96 +78,96 @@ public class ProductRepository {
         XmlUtil.writeXml(PRODUCTS_FILE, wrapper,PRODUCTS_XSD);
     }
 
-    // // Find products by an XPath expression
-//        public List<Product> findByXPath(String xpathExpression) throws Exception {
-//            List<Product> filteredProducts = new ArrayList<>();
-//
-//            // Initialize XML parsing
-//            File xmlFile = new File(PRODUCTS_FILE);
-//            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-//            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-//            Document doc = dBuilder.parse(xmlFile);
-//
-//            // Create XPath object
-//            XPathFactory xPathFactory = XPathFactory.newInstance();
-//            XPath xpath = xPathFactory.newXPath();
-//
-//            String xpathExpression_t = "/products/product/category[text()='"+xpathExpression+"']";
-//
-//            // Evaluate XPath expression
-//            XPathExpression expr = xpath.compile(xpathExpression_t);
-//            System.out.println("<----compile the Xpath arived-------->");
-//            NodeList nodeList = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-//
-//            // Iterate through the matching nodes and extract their IDs
-//            for (int i = 0; i < nodeList.getLength(); i++) {
-//                String productIdString = nodeList.item(i).getTextContent();
-//                Long productId = Long.parseLong(productIdString);
-//
-//                // Use the product ID to find the corresponding Product object
-//                Optional<Product> productOpt = findById(productId);
-//                productOpt.ifPresent(filteredProducts::add);
-//            }
-//
-//            return filteredProducts;
-//        }
+     // Find products by an XPath expression
+        public List<Product> findByXPath(String xpathExpression) throws Exception {
+            List<Product> filteredProducts = new ArrayList<>();
 
-    // Find products by an XPath expression
-    public List<Product> findByXPath(String xpathExpression) throws Exception {
-        List<Product> filteredProducts = new ArrayList<>();
+            // Initialize XML parsing
+            File xmlFile = new File(PRODUCTS_FILE);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(xmlFile);
 
-        // Initialize XML parsing using getResourceAsStream() to load the file
-        FileInputStream xmlInputStream = getClass().getClassLoader().getResourceAsStream(PRODUCTS_FILE);
-        if (xmlInputStream == null) {
-            throw new FileNotFoundException("XML file not found in classpath.");
-        }
+            // Create XPath object
+            XPathFactory xPathFactory = XPathFactory.newInstance();
+            XPath xpath = xPathFactory.newXPath();
 
-        // Parse the document
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(xmlInputStream);
+            String xpathExpression_t = "/products/product/category[text()='"+xpathExpression+"']";
 
-        // Log document parsing success
-        System.out.println("@@@@@@@@@@@@@@@@@2the parsed file " + doc);
+            // Evaluate XPath expression
+            XPathExpression expr = xpath.compile(xpathExpression_t);
+            System.out.println("<----compile the Xpath arived-------->");
+            NodeList nodeList = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
 
-        // Create XPath object
-        XPathFactory xPathFactory = XPathFactory.newInstance();
-        XPath xpath = xPathFactory.newXPath();
-
-        // Compile and evaluate the XPath expression
-        XPathExpression expr = xpath.compile(xpathExpression);
-        System.out.println("<----compiled the XPath expression-------->");
-        NodeList nodeList = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-
-        // Log number of matching nodes
-        System.out.println("==========product======"+nodeList+" Length: " + nodeList.getLength());
-
-        // Iterate through the matching nodes and extract the product elements
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            // Get the entire <product> element (the parent node of <category>)
-            Node productNode = nodeList.item(i).getParentNode(); // Get the parent <product> element
-            System.out.println("==========product======"+productNode.getNodeName());
-
-            // Now, extract the product ID from the <product> element
-            NodeList childNodes = productNode.getChildNodes();
-            String productIdString = "";
-            for (int j = 0; j < childNodes.getLength(); j++) {
-                if ("id".equals(childNodes.item(j).getNodeName())) {
-                    productIdString = childNodes.item(j).getTextContent();
-                    break;
-                }
-            }
-
-            if (!productIdString.isEmpty()) {
-                Long productId = Long.parseLong(productIdString); // Parse the product ID
+            // Iterate through the matching nodes and extract their IDs
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                String productIdString = nodeList.item(i).getTextContent();
+                Long productId = Long.parseLong(productIdString);
 
                 // Use the product ID to find the corresponding Product object
                 Optional<Product> productOpt = findById(productId);
                 productOpt.ifPresent(filteredProducts::add);
             }
+
+            return filteredProducts;
         }
 
-        return filteredProducts;
-    }
+//    // Find products by an XPath expression
+//    public List<Product> findByXPath(String xpathExpression) throws Exception {
+//        List<Product> filteredProducts = new ArrayList<>();
+//
+//        // Initialize XML parsing using getResourceAsStream() to load the file
+//        FileInputStream xmlInputStream = getClass().getClassLoader().getResourceAsStream(PRODUCTS_FILE);
+//        if (xmlInputStream == null) {
+//            throw new FileNotFoundException("XML file not found in classpath.");
+//        }
+//
+//        // Parse the document
+//        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+//        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+//        Document doc = dBuilder.parse(xmlInputStream);
+//
+//        // Log document parsing success
+//        System.out.println("@@@@@@@@@@@@@@@@@2the parsed file " + doc);
+//
+//        // Create XPath object
+//        XPathFactory xPathFactory = XPathFactory.newInstance();
+//        XPath xpath = xPathFactory.newXPath();
+//
+//        // Compile and evaluate the XPath expression
+//        XPathExpression expr = xpath.compile(xpathExpression);
+//        System.out.println("<----compiled the XPath expression-------->");
+//        NodeList nodeList = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+//
+//        // Log number of matching nodes
+//        System.out.println("==========product======"+nodeList+" Length: " + nodeList.getLength());
+//
+//        // Iterate through the matching nodes and extract the product elements
+//        for (int i = 0; i < nodeList.getLength(); i++) {
+//            // Get the entire <product> element (the parent node of <category>)
+//            Node productNode = nodeList.item(i).getParentNode(); // Get the parent <product> element
+//            System.out.println("==========product======"+productNode.getNodeName());
+//
+//            // Now, extract the product ID from the <product> element
+//            NodeList childNodes = productNode.getChildNodes();
+//            String productIdString = "";
+//            for (int j = 0; j < childNodes.getLength(); j++) {
+//                if ("id".equals(childNodes.item(j).getNodeName())) {
+//                    productIdString = childNodes.item(j).getTextContent();
+//                    break;
+//                }
+//            }
+//
+//            if (!productIdString.isEmpty()) {
+//                Long productId = Long.parseLong(productIdString); // Parse the product ID
+//
+//                // Use the product ID to find the corresponding Product object
+//                Optional<Product> productOpt = findById(productId);
+//                productOpt.ifPresent(filteredProducts::add);
+//            }
+//        }
+//
+//        return filteredProducts;
+//    }
 
 }

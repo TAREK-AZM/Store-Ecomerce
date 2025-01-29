@@ -16,7 +16,7 @@ public class ProductController {
     private ProductService productService;
 
     // Get all products
-    @GetMapping
+    @GetMapping("all")
     public List<Product> getAllProducts() throws Exception {
         return productService.getAllProducts();
     }

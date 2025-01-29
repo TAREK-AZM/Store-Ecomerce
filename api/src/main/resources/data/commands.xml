@@ -24,4 +24,10 @@
         <date>2023-10-02</date>
         <userId>1</userId>
     </command>
+    <command>
+        <id>12</id>
+        <status>arbi</status>
+        <date>2023-10-02</date>
+        <userId>1</userId>
+    </command>
 </commands>

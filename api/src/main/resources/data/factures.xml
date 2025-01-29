@@ -32,4 +32,20 @@
         <totalAmount>6099.95</totalAmount>
         <status>CREATED</status>
     </facture>
+    <facture>
+        <id>1738157082418</id>
+        <commandId>11</commandId>
+        <userId>1</userId>
+        <invoiceDate>2025-01-29</invoiceDate>
+        <totalAmount>6099.95</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738157144783</id>
+        <commandId>12</commandId>
+        <userId>1</userId>
+        <invoiceDate>2025-01-29</invoiceDate>
+        <totalAmount>6099.95</totalAmount>
+        <status>CREATED</status>
+    </facture>
 </factures>
