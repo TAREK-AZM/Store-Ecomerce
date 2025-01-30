@@ -4,6 +4,7 @@ import org.store.api.entity.Product;
 import org.store.api.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,7 @@ import java.nio.charset.StandardCharsets; // For specifying character encoding
 
 @RestController
 @RequestMapping("/api/products")
+@CrossOrigin(origins = "*")
 public class ProductController {
 
     @Autowired

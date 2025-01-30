@@ -4,12 +4,14 @@ import org.store.api.entity.LineCommand;
 import org.store.api.service.LineCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/line-commands")
+@CrossOrigin(origins = "*")
 public class LineCommandController {
 
     @Autowired

@@ -20,9 +20,11 @@ import org.springframework.http.ResponseEntity;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/api/commands")
+@CrossOrigin(origins = "*")
 public class CommandController {
 
     @Autowired

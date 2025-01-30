@@ -9,9 +9,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.store.api.util.ReportGeneratorUtil;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/api/reports")
+@CrossOrigin(origins = "*")
 public class ReportController {
     private static final Logger logger = LoggerFactory.getLogger(ReportController.class);
     private static final String PRODUCTS_FILE = "src/main/resources/data/products.xml";
