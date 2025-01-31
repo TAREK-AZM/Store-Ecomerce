@@ -8,17 +8,27 @@ export default function Cart() {
     if (cart.length === 0) {
         return (
             <div className="text-center py-12">
-                <h2 className="text-2xl font-bold mb-4">Your cart is empty</h2>
+                <h2 className="text-2xl font-bold mb-4">Votre panier est vide</h2>
                 <Link to="/" className="text-blue-600 hover:underline">
-                    Continue Shopping
+                    Continuer vos achats
                 </Link>
             </div>
         )
     }
 
+    const handleQuantityChange = (productId, newQuantity) => {
+        if (newQuantity > 0) {
+            updateQuantity(productId, parseInt(newQuantity))
+        }
+    }
+
+    const handleRemoveItem = (productId) => {
+        removeFromCart(productId)
+    }
+
     return (
         <div className="max-w-4xl mx-auto">
-            <h1 className="text-2xl font-bold mb-6">Shopping Cart</h1>
+            <h1 className="text-2xl font-bold mb-6">Panier</h1>
 
             <div className="space-y-4">
                 {cart.map(item => (
@@ -27,6 +37,9 @@ export default function Cart() {
                             src={item.img_url}
                             alt={item.title}
                             className="w-24 h-24 object-cover rounded"
+                            onError={(e) => {
+                                e.target.src = '/placeholder-image.jpg'
+                            }}
                         />
 
                         <div className="flex-1">
@@ -39,13 +52,13 @@ export default function Cart() {
                                 type="number"
                                 min="1"
                                 value={item.quantity}
-                                onChange={(e) => updateQuantity(item.id, Number(e.target.value))}
+                                onChange={(e) => handleQuantityChange(item.productId, e.target.value)}
                                 className="w-20 p-2 border rounded"
                             />
 
                             <button
-                                onClick={() => removeFromCart(item.id)}
-                                className="text-red-600"
+                                onClick={() => handleRemoveItem(item.productId)}
+                                className="text-red-600 hover:text-red-700"
                             >
                                 <TrashIcon className="h-5 w-5" />
                             </button>
@@ -66,7 +79,7 @@ export default function Cart() {
                     to="/checkout"
                     className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
                 >
-                    Proceed to Checkout
+                    Procéder au paiement
                 </Link>
             </div>
         </div>
