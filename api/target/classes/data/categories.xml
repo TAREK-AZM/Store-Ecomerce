@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<categories>
+    <category>
+        <id>101</id>
+        <name>Electronics</name>
+        <description>Electronic devices</description>
+        <imageUrl>http://example.com/electronics.jpg</imageUrl>
+    </category>
+    <category>
+        <id>102</id>
+        <name>Clothing</name>
+        <description>Apparel and accessories</description>
+        <imageUrl>http://example.com/clothing.jpg</imageUrl>
+    </category>
+    <category>
+        <id>103</id>
+        <name>Books</name>
+        <description>Books and literature</description>
+        <imageUrl>http://example.com/books.jpg</imageUrl>
+    </category>
+</categories>
