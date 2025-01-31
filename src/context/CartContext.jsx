@@ -5,12 +5,23 @@ const CartContext = createContext()
 const cartReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
-            const existingItem = state.items.find(item => item.id === action.payload.id)
+            const lineCommand = {
+                id: Math.floor(Math.random() * 10000), // ID temporaire
+                quantity: action.payload.quantity,
+                productId: action.payload.id,
+                commandId: null, // Sera défini par le backend
+                // Informations additionnelles pour l'affichage
+                title: action.payload.title,
+                price: action.payload.price,
+                img_url: action.payload.imageUrl
+            }
+
+            const existingItem = state.items.find(item => item.productId === action.payload.id)
             if (existingItem) {
                 return {
                     ...state,
                     items: state.items.map(item =>
-                        item.id === action.payload.id
+                        item.productId === action.payload.id
                             ? { ...item, quantity: item.quantity + action.payload.quantity }
                             : item
                     )
@@ -18,27 +29,31 @@ const cartReducer = (state, action) => {
             }
             return {
                 ...state,
-                items: [...state.items, { ...action.payload, quantity: action.payload.quantity }]
+                items: [...state.items, lineCommand]
             }
+
         case 'REMOVE_FROM_CART':
             return {
                 ...state,
-                items: state.items.filter(item => item.id !== action.payload)
+                items: state.items.filter(item => item.productId !== action.payload)
             }
+
         case 'UPDATE_QUANTITY':
             return {
                 ...state,
                 items: state.items.map(item =>
-                    item.id === action.payload.id
+                    item.productId === action.payload.id
                         ? { ...item, quantity: action.payload.quantity }
                         : item
                 )
             }
+
         case 'CLEAR_CART':
             return {
                 ...state,
                 items: []
             }
+
         default:
             return state
     }

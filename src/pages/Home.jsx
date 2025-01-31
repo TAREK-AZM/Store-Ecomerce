@@ -1,27 +1,33 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { products, categories } from '../data/mockData'
-import { useCart } from '../context/CartContext'
-import toast from 'react-hot-toast'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+import toast from 'react-hot-toast';
 
-export default function Home() {
-    const [searchTerm, setSearchTerm] = useState('')
-    const [selectedCategory, setSelectedCategory] = useState('')
-    const [priceRange, setPriceRange] = useState({ min: '', max: '' })
-    const { addToCart } = useCart()
+export default function Home({ products }) {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [priceRange, setPriceRange] = useState({ min: '', max: '' });
+    const { addToCart } = useCart();
+
+    // Extraire les catégories uniques des produits
+    const categories = [...new Set(products.map(product => product.category))];
 
     const filteredProducts = products.filter(product => {
-        const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase())
-        const matchesCategory = !selectedCategory || product.category === selectedCategory
+        const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesCategory = !selectedCategory || product.category === selectedCategory;
         const matchesPrice = (!priceRange.min || product.price >= Number(priceRange.min)) &&
-            (!priceRange.max || product.price <= Number(priceRange.max))
-        return matchesSearch && matchesCategory && matchesPrice
-    })
+            (!priceRange.max || product.price <= Number(priceRange.max));
+        return matchesSearch && matchesCategory && matchesPrice;
+    });
 
     const handleAddToCart = (product) => {
-        addToCart(product)
-        toast.success('Added to cart!')
-    }
+        addToCart({
+            ...product,
+            quantity: product.stockQuantity,
+            img_url: product.imageUrl // Pour la compatibilité avec le panier existant
+        });
+        toast.success('Added to cart!');
+    };
 
     return (
         <div className="space-y-6">
@@ -41,8 +47,8 @@ export default function Home() {
                 >
                     <option value="">All Categories</option>
                     {categories.map(category => (
-                        <option key={category.id} value={category.title}>
-                            {category.title}
+                        <option key={category} value={category}>
+                            {category}
                         </option>
                     ))}
                 </select>
@@ -70,9 +76,12 @@ export default function Home() {
                     <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                         <Link to={`/product/${product.id}`}>
                             <img
-                                src={product.img_url}
+                                src={product.imageUrl}
                                 alt={product.title}
                                 className="w-full h-48 object-cover"
+                                onError={(e) => {
+                                    e.target.src = '/placeholder-image.jpg';
+                                }}
                             />
                         </Link>
                         <div className="p-4">
@@ -89,10 +98,10 @@ export default function Home() {
                                     Add to Cart
                                 </button>
                             </div>
-                        </div>NON
+                        </div>
                     </div>
                 ))}
             </div>
         </div>
-    )
+    );
 }

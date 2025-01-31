@@ -1,33 +1,39 @@
-import { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { products } from '../data/mockData'
-import { useCart } from '../context/CartContext'
-import toast from 'react-hot-toast'
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
+import toast from 'react-hot-toast';
 
-export default function ProductDetails() {
-    const { id } = useParams()
-    const [quantity, setQuantity] = useState(1)
-    const { addToCart } = useCart()
+export default function ProductDetails({ products }) {
+    const { id } = useParams();
+    const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCart();
 
-    const product = products.find(p => p.id === Number(id))
+    const product = products.find(p => p.id === Number(id));
 
     if (!product) {
-        return <div>Product not found</div>
+        return <div>Product not found</div>;
     }
 
     const handleAddToCart = () => {
-        addToCart(product, quantity)
-        toast.success('Added to cart!')
-    }
+        addToCart({
+            ...product,
+            quantity: product.stockQuantity,
+            img_url: product.imageUrl // Pour la compatibilité avec le panier existant
+        }, quantity);
+        toast.success('Added to cart!');
+    };
 
     return (
         <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
                 <div>
                     <img
-                        src={product.img_url}
+                        src={product.imageUrl}
                         alt={product.title}
                         className="w-full rounded-lg"
+                        onError={(e) => {
+                            e.target.src = '/placeholder-image.jpg';
+                        }}
                     />
                 </div>
 
@@ -36,7 +42,7 @@ export default function ProductDetails() {
                     <p className="text-gray-600">{product.description}</p>
                     <p className="text-2xl font-bold">${product.price}</p>
                     <p className="text-sm text-gray-500">
-                        {product.quantity} items in stock
+                        {product.stockQuantity} items in stock
                     </p>
 
                     <div className="space-y-4">
@@ -45,7 +51,7 @@ export default function ProductDetails() {
                             <input
                                 type="number"
                                 min="1"
-                                max={product.quantity}
+                                max={product.stockQuantity}
                                 value={quantity}
                                 onChange={(e) => setQuantity(Number(e.target.value))}
                                 className="w-20 p-2 border rounded"
@@ -54,13 +60,14 @@ export default function ProductDetails() {
 
                         <button
                             onClick={handleAddToCart}
-                            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
+                            disabled={product.stockQuantity < 1}
+                            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
                         >
-                            Add to Cart
+                            {product.stockQuantity < 1 ? 'Out of Stock' : 'Add to Cart'}
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
