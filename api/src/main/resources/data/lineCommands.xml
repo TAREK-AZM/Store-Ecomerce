@@ -408,4 +408,28 @@
         <productId>2</productId>
         <commandId>33</commandId>
     </lineCommand>
+    <lineCommand>
+        <id>80</id>
+        <quantity>2</quantity>
+        <productId>1</productId>
+        <commandId>34</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>81</id>
+        <quantity>1</quantity>
+        <productId>2</productId>
+        <commandId>34</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>82</id>
+        <quantity>2</quantity>
+        <productId>1</productId>
+        <commandId>35</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>83</id>
+        <quantity>1</quantity>
+        <productId>2</productId>
+        <commandId>35</commandId>
+    </lineCommand>
 </lineCommands>

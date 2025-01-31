@@ -37,12 +37,39 @@
         <category>Electronics</category>
     </product>
     <product>
-        <id>10</id>
-        <title>Laptop </title>
+        <id>11</id>
+        <title>tarek arbi </title>
         <description>High-performance laptop (Updated)</description>
         <price>1099.99</price>
-        <stockQuantity>50</stockQuantity>
+        <stockQuantity>5</stockQuantity>
         <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Electronics</category>
+        <category>Phone</category>
+    </product>
+    <product>
+        <id>12</id>
+        <title>tarek arbi </title>
+        <description>High-performance laptop (Updated)</description>
+        <price>1099.99</price>
+        <stockQuantity>5</stockQuantity>
+        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <category>Phone</category>
+    </product>
+    <product>
+        <id>13</id>
+        <title>tarek arbi </title>
+        <description>High-performance laptop (Updated)</description>
+        <price>1099.99</price>
+        <stockQuantity>5</stockQuantity>
+        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <category>Phone</category>
+    </product>
+    <product>
+        <id>14</id>
+        <title>tarek arbi </title>
+        <description>High-performance laptop (Updated)</description>
+        <price>1099.99</price>
+        <stockQuantity>5</stockQuantity>
+        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <category>Phone</category>
     </product>
 </products>

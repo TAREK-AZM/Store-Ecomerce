@@ -216,4 +216,20 @@
         <totalAmount>3099.97</totalAmount>
         <status>CREATED</status>
     </facture>
+    <facture>
+        <id>1738365259425</id>
+        <commandId>34</commandId>
+        <userId>13</userId>
+        <invoiceDate>2025-02-01</invoiceDate>
+        <totalAmount>3099.97</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738365268977</id>
+        <commandId>35</commandId>
+        <userId>13</userId>
+        <invoiceDate>2025-02-01</invoiceDate>
+        <totalAmount>3099.97</totalAmount>
+        <status>CREATED</status>
+    </facture>
 </factures>

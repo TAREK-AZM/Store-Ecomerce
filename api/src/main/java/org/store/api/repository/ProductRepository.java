@@ -14,6 +14,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.store.api.util.IdGenerator;
+
 
 // XML parsing
 import org.w3c.dom.Document; // To represent the XML document
@@ -64,6 +66,7 @@ public class ProductRepository {
         List<Product> products = findAll();
         products.removeIf(p -> p.getId().equals(product.getId())); // Remove existing product if it exists
         products.add(product); // Add the new/updated product
+        product.setId(IdGenerator.generateUniqueId(findAll(), Product::getId));
         ProductsWrapper wrapper = new ProductsWrapper();
         wrapper.setProducts(products);
         XmlUtil.writeXml(PRODUCTS_FILE, wrapper,PRODUCTS_XSD);
