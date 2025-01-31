@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- Root element: lineCommands -->
+    <xs:element name="lineCommands">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Child element: lineCommand (multiple) -->
+                <xs:element name="lineCommand" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" type="xs:long"/>
+                            <xs:element name="quantity" type="xs:int"/>
+                            <xs:element name="productId" type="xs:long"/>
+                            <xs:element name="commandId" type="xs:long"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="uniqueLineCommandID">
+            <xs:selector xpath="lineCommand"/>
+            <xs:field xpath="id"/>
+        </xs:unique>
+    </xs:element>
+
+</xs:schema>
