@@ -18,7 +18,6 @@
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
-
         <xs:unique name="uniqueLineCommandID">
             <xs:selector xpath="lineCommand"/>
             <xs:field xpath="id"/>

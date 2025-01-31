@@ -27,6 +27,12 @@ public class UserRepository {
                 .findFirst();
     }
 
+    public Optional<User> findByPhoneNumber(String phoneNumber) throws Exception {
+        return findAll().stream()
+                .filter(user -> user.getPhoneNumber().equals(phoneNumber))
+                .findFirst();
+    }
+
     // Find a check user by phone number
     public Boolean checkUserExistByPhoneNumber(String phoneNumber) throws Exception {
         return findAll().stream()

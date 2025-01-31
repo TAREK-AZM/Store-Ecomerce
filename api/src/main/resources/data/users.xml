@@ -108,4 +108,13 @@
         <address>456 New St, Casablanca</address>
         <username>trt_hassan</username>
     </user>
+    <user>
+        <id>13</id>
+        <firstName>Omar</firstName>
+        <lastName>Hassan</lastName>
+        <email>dfdjfhdf@example.com</email>
+        <phoneNumber>1118822999</phoneNumber>
+        <address>456 New St, Casablanca</address>
+        <username>hadfdfdssan</username>
+    </user>
 </users>

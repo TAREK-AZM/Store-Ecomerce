@@ -2,7 +2,6 @@
 <xs:schema
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         elementFormDefault="qualified">
-
     <!-- Root element: users -->
 
     <xs:element name="users">
@@ -12,8 +11,6 @@
                 <xs:element name="user" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <!-- Fields of the user element -->
-
                             <!-- id: Must be a positive long integer -->
                             <xs:element name="id">
                                 <xs:simpleType>
@@ -22,13 +19,10 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-
                             <!-- firstName: Required string -->
                             <xs:element name="firstName" type="xs:string"/>
-
                             <!-- lastName: Required string -->
                             <xs:element name="lastName" type="xs:string"/>
-
                             <!-- email: Required string with email pattern -->
                             <xs:element name="email">
                                 <xs:simpleType>
@@ -38,7 +32,6 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-
                             <!-- phoneNumber: Required string with exactly 10 digits -->
                             <xs:element name="phoneNumber">
                                 <xs:simpleType>
@@ -59,31 +52,25 @@
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
-
         <!-- Unique constraint on id -->
         <xs:unique name="uniqueUserID">
             <xs:selector xpath="user"/>
             <xs:field xpath="id"/>
         </xs:unique>
-
         <!-- Unique constraint on email -->
         <xs:unique name="uniqueEmail">
             <xs:selector xpath="user"/>
             <xs:field xpath="email"/>
         </xs:unique>
-
 <!--         Unique constraint on phone-->
 <!--        <xs:unique name="uniquephoneNumber">-->
 <!--            <xs:selector xpath="user"/>-->
 <!--            <xs:field xpath="phoneNumber"/>-->
 <!--        </xs:unique>-->
-
         <!-- Unique constraint on username -->
         <xs:unique name="uniqueUsername">
             <xs:selector xpath="user"/>
             <xs:field xpath="username"/>
         </xs:unique>
-
     </xs:element>
-
 </xs:schema>

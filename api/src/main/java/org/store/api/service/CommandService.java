@@ -56,9 +56,7 @@ public class CommandService {
         List<LineCommand> lineCommands = orderRequest.getLineCommands();
 
         // 1. Check if the user exists by phone number
-        Optional<User> existingUserOpt = userRepository.findAll().stream()
-                .filter(u -> u.getPhoneNumber().equals(user.getPhoneNumber()))
-                .findFirst();
+        Optional<User> existingUserOpt = userRepository.findByPhoneNumber(user.getPhoneNumber());
 
         User storedUser;
         if (existingUserOpt.isEmpty()) {
@@ -71,12 +69,14 @@ public class CommandService {
             storedUser = user; // Assign to the final variable
         } else {
             storedUser = existingUserOpt.get();
+            System.out.println("---->the user exist<-----"+storedUser);
+
         }
 
 
         // 2. Create and save the command
         Command command = new Command();
-        command.setUserId(user.getId());
+        command.setUserId(storedUser.getId());
         command.setStatus("PENDING");
         command.setDate(java.time.LocalDate.now().toString());
 
