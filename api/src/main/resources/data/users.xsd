@@ -72,6 +72,12 @@
             <xs:field xpath="email"/>
         </xs:unique>
 
+<!--         Unique constraint on phone-->
+<!--        <xs:unique name="uniquephoneNumber">-->
+<!--            <xs:selector xpath="user"/>-->
+<!--            <xs:field xpath="phoneNumber"/>-->
+<!--        </xs:unique>-->
+
         <!-- Unique constraint on username -->
         <xs:unique name="uniqueUsername">
             <xs:selector xpath="user"/>

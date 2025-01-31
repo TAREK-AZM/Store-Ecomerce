@@ -48,4 +48,52 @@
         <totalAmount>6099.95</totalAmount>
         <status>CREATED</status>
     </facture>
+    <facture>
+        <id>1738338470888</id>
+        <commandId>13</commandId>
+        <userId>10</userId>
+        <invoiceDate>2025-01-31</invoiceDate>
+        <totalAmount>5799.94</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738338535743</id>
+        <commandId>14</commandId>
+        <userId>10</userId>
+        <invoiceDate>2025-01-31</invoiceDate>
+        <totalAmount>5799.94</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738338650834</id>
+        <commandId>15</commandId>
+        <userId>10</userId>
+        <invoiceDate>2025-01-31</invoiceDate>
+        <totalAmount>5799.94</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738339464089</id>
+        <commandId>16</commandId>
+        <userId>11</userId>
+        <invoiceDate>2025-01-31</invoiceDate>
+        <totalAmount>5799.94</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738339492005</id>
+        <commandId>17</commandId>
+        <userId>10</userId>
+        <invoiceDate>2025-01-31</invoiceDate>
+        <totalAmount>5799.94</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738339805417</id>
+        <commandId>18</commandId>
+        <userId>12</userId>
+        <invoiceDate>2025-01-31</invoiceDate>
+        <totalAmount>5799.94</totalAmount>
+        <status>CREATED</status>
+    </facture>
 </factures>

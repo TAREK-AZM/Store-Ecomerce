@@ -3,16 +3,16 @@ package org.store.api.entity;
 import java.util.List;
 
 public class CreateOrderRequest {
-    private Command command;
+    private User user;
     private List<LineCommand> lineCommands;
 
     // Getters and setters
-    public Command getCommand() {
-        return command;
+    public User getUser() {
+        return user;
     }
 
-    public void setCommand(Command command) {
-        this.command = command;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<LineCommand> getLineCommands() {

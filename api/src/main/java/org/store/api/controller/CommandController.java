@@ -51,10 +51,16 @@ public class CommandController {
 //    public void createOrder(@RequestBody CreateOrderRequest request) throws Exception {
 //        commandService.createOrder(request.getCommand(), request.getLineCommands());
 //    }
+
+//    @PostMapping("/create")
+//    public Long createOrder(@RequestBody CreateOrderRequest orderRequest) throws Exception {
+//        return commandService.createOrder(orderRequest);
+//    }
+
     @PostMapping("/create")
     public ResponseEntity<InputStreamResource> createOrder(@RequestBody CreateOrderRequest orderRequest) {
         try {
-            Long FactureID = commandService.createOrder(orderRequest.getCommand(), orderRequest.getLineCommands());
+            Long FactureID = commandService.createOrder(orderRequest);
             return generatePdfResponse(FactureID);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

@@ -9,6 +9,10 @@ import org.store.api.repository.ProductRepository;
 import org.store.api.repository.LineCommandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.store.api.util.IdGenerator;
+import org.store.api.entity.CreateOrderRequest;
+import org.store.api.repository.UserRepository;
+import org.store.api.entity.*;
 
 import java.io.File; // Add this import
 import java.util.List;
@@ -33,6 +37,8 @@ public class CommandService {
     @Autowired
     private FactureService factureService;
 
+    @Autowired
+    private UserRepository userRepository;
 
     // Get all commands
     public List<Command> getAllCommands() throws Exception {
@@ -43,24 +49,61 @@ public class CommandService {
     public Optional<Command> getCommandById(Long id) throws Exception {
         return commandRepository.findById(id);
     }
+    // createOrder
 
-    public Long createOrder(Command command, List<LineCommand> lineCommands) throws Exception {
-        // Save command
+    public Long createOrder(CreateOrderRequest orderRequest) throws Exception {
+        User user = orderRequest.getUser();
+        List<LineCommand> lineCommands = orderRequest.getLineCommands();
+
+        // 1. Check if the user exists by phone number
+        Optional<User> existingUserOpt = userRepository.findAll().stream()
+                .filter(u -> u.getPhoneNumber().equals(user.getPhoneNumber()))
+                .findFirst();
+
+        User storedUser;
+        if (existingUserOpt.isEmpty()) {
+            // Assign a unique ID using the utility function
+            user.setId(IdGenerator.generateUniqueId(userRepository.findAll(), User::getId));
+
+            System.out.println("-----> this the user <------"+user);
+            // Save the new user
+            userRepository.save(user);
+            storedUser = user; // Assign to the final variable
+        } else {
+            storedUser = existingUserOpt.get();
+        }
+
+
+        // 2. Create and save the command
+        Command command = new Command();
+        command.setUserId(user.getId());
+        command.setStatus("PENDING");
+        command.setDate(java.time.LocalDate.now().toString());
+
+        // Assign a unique ID to the command
+        command.setId(IdGenerator.generateUniqueId(commandRepository.findAll(), Command::getId));
+
         commandRepository.save(command);
 
-
-        // Update line commands with command ID
+        // 3. Associate line commands with the created command
         for (LineCommand line : lineCommands) {
             line.setCommandId(command.getId());
+
+            // Assign a unique ID to each LineCommand
+            line.setId(IdGenerator.generateUniqueId(lineCommandRepository.findAll(), LineCommand::getId));
+
             lineCommandRepository.save(line);
         }
 
-        // Generate facture
-        return factureService.createFacture(command, lineCommands).getId();
+        // 4. Generate the facture
+        Facture facture = factureService.createFacture(command, lineCommands);
 
+        return facture.getId(); // Return the facture ID
     }
 
-    // Delete a command by ID
+
+
+    // delete the command
     public void deleteCommand(Long id) throws Exception {
         commandRepository.deleteById(id);
     }

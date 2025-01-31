@@ -27,6 +27,12 @@ public class UserRepository {
                 .findFirst();
     }
 
+    // Find a check user by phone number
+    public Boolean checkUserExistByPhoneNumber(String phoneNumber) throws Exception {
+        return findAll().stream()
+                .anyMatch(user -> user.getPhoneNumber().equals(phoneNumber));
+    }
+
     // Save a user (add or update)
     public void save(User user) throws Exception {
         List<User> users = findAll();
@@ -45,6 +51,8 @@ public class UserRepository {
         wrapper.setUsers(users);
         XmlUtil.writeXml(USERS_FILE, wrapper,USERS_XSD);
     }
+
+    //
 }
 
 
