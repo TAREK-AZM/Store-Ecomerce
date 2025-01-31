@@ -29,6 +29,12 @@ public class LineCommandController {
         return lineCommandService.getLineCommandById(id);
     }
 
+    // get the lines commands of by commandID
+    @GetMapping("/lines/{CommandId}")
+    public List<LineCommand> findLineCommandsByCommandId(@PathVariable Long CommandId) throws Exception {
+        return lineCommandService.findLineCommandsByCommandId(CommandId);
+    }
+
     // Create or update a line command
     @PostMapping
     public void saveLineCommand(@RequestBody LineCommand lineCommand) throws Exception {
@@ -40,4 +46,5 @@ public class LineCommandController {
     public void deleteLineCommand(@PathVariable Long id) throws Exception {
         lineCommandService.deleteLineCommand(id);
     }
+
 }

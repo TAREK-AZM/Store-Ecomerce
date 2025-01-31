@@ -34,5 +34,10 @@ public class LineCommandService {
         lineCommandRepository.deleteById(id);
     }
 
+    // find lines commans by command ID
+    public List<LineCommand> findLineCommandsByCommandId(Long commandId) throws Exception {
+        return lineCommandRepository.findLineCommandsByCommandId(commandId);
+    }
+
 
 }
