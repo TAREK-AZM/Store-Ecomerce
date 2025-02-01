@@ -5,25 +5,20 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.store.api.entity.User;
+import java.lang.reflect.Method;
 import java.io.*;
 import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
+import java.util.ArrayList;
 @Service
 public class ExcelExportService {
     private static final String EXPORT_DIRECTORY = "src/main/resources/exports/";
 
-    @Autowired
-    private UserService userService;
-
-    public String exportUsersToExcel() throws Exception {
-        // Get users from the existing service
-        List<User> users = userService.getAllUsers();
-
-        if (users.isEmpty()) {
-            throw new IllegalStateException("No users found to export");
+    public <T> String exportToExcel(List<T> entities, String entityName) throws Exception {
+        if (entities == null || entities.isEmpty()) {
+            throw new IllegalStateException("No " + entityName + " found to export");
         }
 
         // Create export directory if it doesn't exist
@@ -31,45 +26,64 @@ public class ExcelExportService {
 
         // Generate filename with timestamp
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-        String filename = EXPORT_DIRECTORY + "users_" + timestamp + ".xlsx";
+        String filename = EXPORT_DIRECTORY + entityName.toLowerCase() + "_" + timestamp + ".xlsx";
 
         try (Workbook workbook = new XSSFWorkbook()) {
-            Sheet sheet = workbook.createSheet("Users");
+            Sheet sheet = workbook.createSheet(entityName);
 
-            // Create styles
+            // Get methods and headers using reflection
+            List<Method> getterMethods = new ArrayList<>();
+            List<String> headers = new ArrayList<>();
+
+            // Get the first entity to analyze its structure
+            T sampleEntity = entities.get(0);
+            for (Method method : sampleEntity.getClass().getMethods()) {
+                String methodName = method.getName();
+                if (methodName.startsWith("get") &&
+                        !methodName.equals("getClass") &&
+                        method.getParameterCount() == 0) {
+                    getterMethods.add(method);
+                    // Convert getter name to header (e.g., "getId" -> "ID")
+                    String header = methodName.substring(3);
+                    header = header.substring(0, 1).toUpperCase() +
+                            header.substring(1).replaceAll("([A-Z])", " $1").trim();
+                    headers.add(header);
+                }
+            }
+
+            // Create header row with styling
             CellStyle headerStyle = createHeaderStyle(workbook);
-
-            // Create header row
             Row headerRow = sheet.createRow(0);
-            String[] headers = {"ID", "Username", "Email", "First Name", "Last Name", "Phone Number", "Address"};
-
-            for (int i = 0; i < headers.length; i++) {
+            for (int i = 0; i < headers.size(); i++) {
                 Cell cell = headerRow.createCell(i);
-                cell.setCellValue(headers[i]);
+                cell.setCellValue(headers.get(i));
                 cell.setCellStyle(headerStyle);
             }
 
             // Fill data rows
             int rowNum = 1;
-            for (User user : users) {
+            for (T entity : entities) {
                 Row row = sheet.createRow(rowNum++);
-
-                row.createCell(0).setCellValue(user.getId());
-                row.createCell(1).setCellValue(user.getUsername());
-                row.createCell(2).setCellValue(user.getEmail());
-                row.createCell(3).setCellValue(user.getFirstName());
-                row.createCell(4).setCellValue(user.getLastName());
-                row.createCell(5).setCellValue(user.getPhoneNumber());
-                row.createCell(6).setCellValue(user.getAddress());
+                for (int i = 0; i < getterMethods.size(); i++) {
+                    Cell cell = row.createCell(i);
+                    Object value = getterMethods.get(i).invoke(entity);
+                    if (value != null) {
+                        if (value instanceof Number) {
+                            cell.setCellValue(((Number) value).doubleValue());
+                        } else {
+                            cell.setCellValue(value.toString());
+                        }
+                    }
+                }
             }
 
             // Autosize columns
-            for (int i = 0; i < headers.length; i++) {
+            for (int i = 0; i < headers.size(); i++) {
                 sheet.autoSizeColumn(i);
             }
 
             // Add metadata sheet
-            addMetadataSheet(workbook, users.size());
+            addMetadataSheet(workbook, entities.size(), entityName);
 
             // Write to file
             try (FileOutputStream fileOut = new FileOutputStream(filename)) {
@@ -91,7 +105,7 @@ public class ExcelExportService {
         return style;
     }
 
-    private void addMetadataSheet(Workbook workbook, int recordCount) {
+    private void addMetadataSheet(Workbook workbook, int recordCount, String entityName) {
         Sheet metadataSheet = workbook.createSheet("Metadata");
 
         Row row0 = metadataSheet.createRow(0);
@@ -99,7 +113,7 @@ public class ExcelExportService {
         row0.createCell(1).setCellValue(LocalDateTime.now().toString());
 
         Row row1 = metadataSheet.createRow(1);
-        row1.createCell(0).setCellValue("Total Users:");
+        row1.createCell(0).setCellValue("Total " + entityName + ":");
         row1.createCell(1).setCellValue(recordCount);
     }
 }
