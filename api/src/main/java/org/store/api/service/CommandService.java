@@ -77,7 +77,7 @@ public class CommandService {
         // 2. Create and save the command
         Command command = new Command();
         command.setUserId(storedUser.getId());
-        command.setStatus("PENDING");
+        command.setStatus("Pending");
         command.setDate(java.time.LocalDate.now().toString());
 
         // Assign a unique ID to the command
