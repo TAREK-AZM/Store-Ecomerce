@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Monthly Store Report</title>
+        <style>
+                    body {
+                    font-family: 'Arial', sans-serif;
+                    margin: 20px;
+                    background-color: #f5f5f5;
+                    color: #333;
+                    }
+                    h1, h2 {
+                    color: #0056b3;
+                    }
+                    table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-top: 20px;
+                    background-color: #ffffff;
+                    border: 1px solid #ddd;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    border-radius: 8px;
+                    overflow: hidden;
+                    }
+                    th {
+                    background-color: #0056b3;
+                    color: #ffffff;
+                    padding: 10px;
+                    border: 1px solid #0056b3;
+                    text-align: left;
+                    }
+                    td {
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    text-align: left;
+                    background-color: #fafafa;
+                    }
+                    tr:nth-child(even) {
+                    background-color: #f9f9f9;
+                    }
+                    .summary {
+                    margin: 20px 0;
+                    padding: 15px;
+                    background-color: #e3f2fd;
+                    border-left: 5px solid #0056b3;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    line-height: 1.6;
+                    }
+                    .summary h2 {
+                    margin: 0 0 10px;
+                    }
+                    .low-stock {
+                    background-color: #ffcccc !important;
+                    }
+                    .low-stock td {
+                    color: #cc0000;
+                    font-weight: bold;
+                    }
+                    a {
+                    color: #0056b3;
+                    text-decoration: none;
+                    }
+                    a:hover {
+                    text-decoration: underline;
+                    }
+                </style>
+    </head>
+    <body>
+        <h1>&#128203; Monthly Store Report</h1>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>
+                <strong>Total Products:</strong>12
+            </p>
+            <p>
+                <strong>Total Items in Stock:</strong>219
+            </p>
+            <p>
+                <strong>Low Stock Items (Quantity &le; 10):</strong>9
+            </p>
+        </div>
+        <h2>&#128230; Product Inventory</h2>
+        <table>
+            <tr>
+                <th>ID</th><th>Title</th><th>Category</th><th>Price ($)</th><th>Stock</th>
+            </tr>
+            <tr>
+                <td>4</td><td>4K Smart TV</td><td>Electronics</td><td>899.99</td><td>15</td>
+            </tr>
+            <tr>
+                <td>3</td><td>Wireless Earbuds</td><td>Laptob</td><td>199.99</td><td>100</td>
+            </tr>
+            <tr>
+                <td>1</td><td>Smartphone X</td><td>Phone</td><td>799.99</td><td>50</td>
+            </tr>
+            <tr class="low-stock">
+                <td>2</td><td>Gaming Laptop</td><td>Phone</td><td>1,499.99</td><td>10</td>
+            </tr>
+            <tr class="low-stock">
+                <td>11</td><td>tarek arbi </td><td>Phone</td><td>1,099.99</td><td>5</td>
+            </tr>
+            <tr class="low-stock">
+                <td>12</td><td>tarek arbi </td><td>Phone</td><td>1,099.99</td><td>5</td>
+            </tr>
+            <tr class="low-stock">
+                <td>13</td><td>tarek arbi </td><td>Phone</td><td>1,099.99</td><td>5</td>
+            </tr>
+            <tr class="low-stock">
+                <td>14</td><td>tarek arbi </td><td>Phone</td><td>1,099.99</td><td>5</td>
+            </tr>
+            <tr class="low-stock">
+                <td>16</td><td>tarek arbi 2 updated</td><td>Phone</td><td>1,099.99</td><td>5</td>
+            </tr>
+            <tr class="low-stock">
+                <td>17</td><td>tarek arbi 2 updated *3</td><td>Phone</td><td>1,099.99</td><td>5</td>
+            </tr>
+            <tr class="low-stock">
+                <td>18</td><td>tarek arbi 3 *2 </td><td>Phone</td><td>1,099.99</td><td>5</td>
+            </tr>
+            <tr class="low-stock">
+                <td>19</td><td>ArbiProduct</td><td>TestCategory</td><td>15.00</td><td>9</td>
+            </tr>
+        </table>
+        <h2>&#128202; Category Summary</h2>
+        <table>
+            <tr>
+                <th>Category</th><th>Number of Products</th><th>Total Stock</th>
+            </tr>
+            <tr>
+                <td>Phone</td><td>9</td><td>95</td>
+            </tr>
+            <tr>
+                <td>Phone</td><td>9</td><td>95</td>
+            </tr>
+            <tr>
+                <td>Laptob</td><td>1</td><td>100</td>
+            </tr>
+            <tr>
+                <td>Electronics</td><td>1</td><td>15</td>
+            </tr>
+            <tr>
+                <td>TestCategory</td><td>1</td><td>9</td>
+            </tr>
+        </table>
+    </body>
+</html>

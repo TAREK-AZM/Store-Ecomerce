@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <!-- Define the root element 'products' -->
+    <xs:element name="products">
+        <xs:complexType>
+
+            <xs:sequence>
+
+                <!-- Define the 'product' element as a sequence of child elements -->
+                <xs:element name="product" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Define the child elements in the specified order -->
+                            <xs:element name="id">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:long">
+                                        <xs:minInclusive value="1"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="title" type="xs:string"/>
+                            <xs:element name="description" type="xs:string"/>
+                            <xs:element name="price" type="xs:double"/>
+                            <xs:element name="stockQuantity" type="xs:int"/>
+                            <xs:element name="imageUrl" type="xs:string"/>
+                            <xs:element name="category" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+        <!-- Corrected unique constraint -->
+        <xs:unique name="UniqueProductId">
+            <xs:selector xpath="product"/> <!-- Select all <product> elements -->
+            <xs:field xpath="id"/>         <!-- Check the <id> element within each <product> -->
+        </xs:unique>
+
+    </xs:element>
+</xs:schema>

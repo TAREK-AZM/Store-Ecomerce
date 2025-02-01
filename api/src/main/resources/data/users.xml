@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<users>
+    <user>
+        <id>1</id>
+        <firstName>Hamid</firstName>
+        <lastName>Elawarchani</lastName>
+        <email>Hamid@gmail.com</email>
+        <phoneNumber>0654987321</phoneNumber>
+        <address>Tanger_Dradeb</address>
+        <username>Hamid_EL</username>
+    </user>
+    <user>
+        <id>2</id>
+        <firstName>Saad</firstName>
+        <lastName>Kharoub</lastName>
+        <email>Saad@gmail.com</email>
+        <phoneNumber>0632659874</phoneNumber>
+        <address>Marrakech_daoudiat</address>
+        <username>Saad_02</username>
+    </user>
+    <user>
+        <id>3</id>
+        <firstName>Halima</firstName>
+        <lastName>Aboudi</lastName>
+        <email>Halima@gmail.com</email>
+        <phoneNumber>0612356479</phoneNumber>
+        <address>Casablanca_Sidi-Maarouf</address>
+        <username>Halima_Ab</username>
+    </user>
+</users>

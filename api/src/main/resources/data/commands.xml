@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<commands>
+    <command>
+        <id>1</id>
+        <status>Shipped</status>
+        <date>2025-02-01</date>
+        <userId>1</userId>
+    </command>
+    <command>
+        <id>2</id>
+        <status>Delivered</status>
+        <date>2025-02-01</date>
+        <userId>2</userId>
+    </command>
+    <command>
+        <id>3</id>
+        <status>Cancelled</status>
+        <date>2025-02-01</date>
+        <userId>3</userId>
+    </command>
+</commands>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<factures>
+    <facture>
+        <id>1738436982312</id>
+        <commandId>1</commandId>
+        <userId>1</userId>
+        <invoiceDate>2025-02-01</invoiceDate>
+        <totalAmount>2316.0</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738437246025</id>
+        <commandId>2</commandId>
+        <userId>2</userId>
+        <invoiceDate>2025-02-01</invoiceDate>
+        <totalAmount>3259.0</totalAmount>
+        <status>CREATED</status>
+    </facture>
+    <facture>
+        <id>1738437407758</id>
+        <commandId>3</commandId>
+        <userId>3</userId>
+        <invoiceDate>2025-02-01</invoiceDate>
+        <totalAmount>1078.0</totalAmount>
+        <status>CREATED</status>
+    </facture>
+</factures>

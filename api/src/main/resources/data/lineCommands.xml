@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lineCommands>
+    <lineCommand>
+        <id>1</id>
+        <quantity>1</quantity>
+        <productId>3</productId>
+        <commandId>1</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>2</id>
+        <quantity>1</quantity>
+        <productId>6</productId>
+        <commandId>2</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>3</id>
+        <quantity>2</quantity>
+        <productId>9</productId>
+        <commandId>2</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>4</id>
+        <quantity>1</quantity>
+        <productId>10</productId>
+        <commandId>2</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>5</id>
+        <quantity>1</quantity>
+        <productId>7</productId>
+        <commandId>2</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>6</id>
+        <quantity>1</quantity>
+        <productId>8</productId>
+        <commandId>3</commandId>
+    </lineCommand>
+    <lineCommand>
+        <id>7</id>
+        <quantity>1</quantity>
+        <productId>1</productId>
+        <commandId>3</commandId>
+    </lineCommand>
+</lineCommands>
