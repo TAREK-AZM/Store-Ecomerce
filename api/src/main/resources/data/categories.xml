@@ -18,4 +18,10 @@
         <description>Books and literature</description>
         <imageUrl>http://example.com/books.jpg</imageUrl>
     </category>
+    <category>
+        <id>104</id>
+        <name>Iphone pro max</name>
+        <description> Update this this the category that specialized in the field of economy</description>
+        <imageUrl>http://www.google.com</imageUrl>
+    </category>
 </categories>

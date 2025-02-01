@@ -4,6 +4,7 @@ import org.store.api.entity.LineCommand;
 import org.store.api.entity.LineCommandsWrapper;
 import org.store.api.util.XmlUtil;
 import org.springframework.stereotype.Repository;
+import org.store.api.util.IdGenerator;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -43,10 +44,11 @@ public class LineCommandRepository {
         Optional<LineCommand> existingLineCommand = lineCommands.stream()
                 .filter(lc -> lc.getId().equals(lineCommand.getId()))
                 .findFirst();
-
         // If it exists, remove it
         existingLineCommand.ifPresent(lineCommands::remove);
-
+        if(!(lineCommand.getId() !=null)){// if the product yet created
+            lineCommand.setId(IdGenerator.generateUniqueId(findAll(), LineCommand::getId));
+        }
         // Add the new/updated line command
         lineCommands.add(lineCommand);
 

@@ -45,6 +45,11 @@ public class FactureController {
         }
     }
 
+    @PostMapping
+    public void saveFacture(@RequestBody Facture facture) throws Exception {
+        factureService.saveFacture(facture);
+    }
+
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Facture>> getUserFactures(@PathVariable Long userId) {
         try {

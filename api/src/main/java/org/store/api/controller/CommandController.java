@@ -43,19 +43,14 @@ public class CommandController {
     }
 
     // Create or update a command
-//    @PostMapping
-//    public void saveCommand(@RequestBody Command command) throws Exception {
-//        commandService.saveCommand(command);
-//    }
+    @PostMapping
+    public void saveCommand(@RequestBody Command command) throws Exception {
+        commandService.saveCommand(command);
+    }
 
-//    public void createOrder(@RequestBody CreateOrderRequest request) throws Exception {
-//        commandService.createOrder(request.getCommand(), request.getLineCommands());
-//    }
 
-//    @PostMapping("/create")
-//    public Long createOrder(@RequestBody CreateOrderRequest orderRequest) throws Exception {
-//        return commandService.createOrder(orderRequest);
-//    }
+
+
 
     @PostMapping("/create")
     public ResponseEntity<InputStreamResource> createOrder(@RequestBody CreateOrderRequest orderRequest) {

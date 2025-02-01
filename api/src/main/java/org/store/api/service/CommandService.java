@@ -101,7 +101,9 @@ public class CommandService {
         return facture.getId(); // Return the facture ID
     }
 
-
+    public void saveCommand(Command command) throws Exception {
+        commandRepository.save(command);
+    }
 
     // delete the command
     public void deleteCommand(Long id) throws Exception {

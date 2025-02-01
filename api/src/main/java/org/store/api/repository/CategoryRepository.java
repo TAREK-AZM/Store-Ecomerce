@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.store.api.util.IdGenerator;
+
+
+
 @Repository
 public class CategoryRepository {
 
@@ -31,6 +35,9 @@ public class CategoryRepository {
     public void save(Category category) throws Exception {
         List<Category> categories = findAll();
         categories.removeIf(c -> c.getId().equals(category.getId())); // Remove existing category if it exists
+        if(!(category.getId() !=null)){// if the product yet created
+            category.setId(IdGenerator.generateUniqueId(findAll(), Category::getId));
+        }
         categories.add(category); // Add the new/updated category
         CategoriesWrapper wrapper = new CategoriesWrapper();
         wrapper.setCategories(categories);

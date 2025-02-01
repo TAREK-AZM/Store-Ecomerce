@@ -65,8 +65,10 @@ public class ProductRepository {
     public void save(Product product) throws Exception {
         List<Product> products = findAll();
         products.removeIf(p -> p.getId().equals(product.getId())); // Remove existing product if it exists
+        if(!(product.getId() !=null)){// if the product yet created
+            product.setId(IdGenerator.generateUniqueId(findAll(), Product::getId));
+        }
         products.add(product); // Add the new/updated product
-        product.setId(IdGenerator.generateUniqueId(findAll(), Product::getId));
         ProductsWrapper wrapper = new ProductsWrapper();
         wrapper.setProducts(products);
         XmlUtil.writeXml(PRODUCTS_FILE, wrapper,PRODUCTS_XSD);

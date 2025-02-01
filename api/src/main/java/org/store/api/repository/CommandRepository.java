@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.store.api.util.IdGenerator;
 
 
 @Repository
@@ -34,6 +35,9 @@ public class CommandRepository {
     public void save(Command command) throws Exception {
         List<Command> commands = findAll();
         commands.removeIf(c -> c.getId().equals(command.getId())); // Remove existing command if it exists
+        if(!(command.getId() !=null)){// if the product yet created
+            command.setId(IdGenerator.generateUniqueId(findAll(), Command::getId));
+        }
         commands.add(command); // Add the new/updated command
         CommandsWrapper wrapper = new CommandsWrapper();
         wrapper.setCommands(commands);

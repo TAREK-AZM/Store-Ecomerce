@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.store.api.util.IdGenerator;
+
 
 @Repository
 public class FactureRepository {
@@ -42,6 +44,9 @@ public class FactureRepository {
         } else {
             // Otherwise, remove any existing facture with the same ID and add the new one
             factures.removeIf(f -> f.getId().equals(facture.getId())); // Remove existing facture if it exists
+            if(!(facture.getId() !=null)){// if the product yet created
+                facture.setId(IdGenerator.generateUniqueId(findAll(), Facture::getId));
+            }
             factures.add(facture); // Add the new/updated facture
         }
 

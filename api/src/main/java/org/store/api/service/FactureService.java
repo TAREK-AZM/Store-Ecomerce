@@ -162,6 +162,10 @@ public class FactureService {
         table.addCell(new PdfPCell(new Phrase(value, NORMAL_FONT)));
     }
 
+    public void saveFacture(Facture facture) throws Exception{
+        factureRepository.save(facture);
+    }
+
     public Optional<Facture> getFactureById(Long id) throws Exception {
         return factureRepository.findById(id);
     }

@@ -4,6 +4,7 @@ import org.store.api.entity.User;
 import org.store.api.entity.UsersWrapper;
 import org.store.api.util.XmlUtil;
 import org.springframework.stereotype.Repository;
+import org.store.api.util.IdGenerator;
 
 import java.util.List;
 import java.util.Optional;
@@ -43,6 +44,9 @@ public class UserRepository {
     public void save(User user) throws Exception {
         List<User> users = findAll();
         users.removeIf(u -> u.getId().equals(user.getId())); // Remove existing user if it exists
+        if(!(user.getId() !=null)){// if the product yet created
+            user.setId(IdGenerator.generateUniqueId(findAll(), User::getId));
+        }
         users.add(user); // Add the new/updated user
         UsersWrapper wrapper = new UsersWrapper();
         wrapper.setUsers(users);

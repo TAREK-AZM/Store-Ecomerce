@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <commands>
     <command>
-        <id>1</id>
-        <status>Pending</status>
-        <date>2023-10-01</date>
-        <userId>1</userId>
-    </command>
-    <command>
         <id>2</id>
         <status>Shipped</status>
         <date>2023-10-02</date>
@@ -167,5 +161,29 @@
         <status>PENDING</status>
         <date>2025-02-01</date>
         <userId>13</userId>
+    </command>
+    <command>
+        <id>36</id>
+        <status>PENDING</status>
+        <date>2025-02-01</date>
+        <userId>13</userId>
+    </command>
+    <command>
+        <id>37</id>
+        <status>PENDING</status>
+        <date>2025-02-01</date>
+        <userId>13</userId>
+    </command>
+    <command>
+        <id>38</id>
+        <status>PENDING</status>
+        <date>2025-02-01</date>
+        <userId>13</userId>
+    </command>
+    <command>
+        <id>1</id>
+        <status>Shippedddddd</status>
+        <date>2023-10-15</date>
+        <userId>1</userId>
     </command>
 </commands>

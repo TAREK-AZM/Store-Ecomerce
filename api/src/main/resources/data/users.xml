@@ -73,15 +73,6 @@
         <username>Mohamed</username>
     </user>
     <user>
-        <id>9</id>
-        <firstName>salim</firstName>
-        <lastName>AL AZAMI</lastName>
-        <email>ishak@example.com</email>
-        <phoneNumber>1234567890</phoneNumber>
-        <address>123 Main St, Springfield</address>
-        <username>ishak</username>
-    </user>
-    <user>
         <id>10</id>
         <firstName>Omar</firstName>
         <lastName>Hassan</lastName>
@@ -116,5 +107,23 @@
         <phoneNumber>1118822999</phoneNumber>
         <address>456 New St, Casablanca</address>
         <username>hadfdfdssan</username>
+    </user>
+    <user>
+        <id>9</id>
+        <firstName>salim</firstName>
+        <lastName>AL AZAMI</lastName>
+        <email>ishak@example.com</email>
+        <phoneNumber>1234567890</phoneNumber>
+        <address>123 Main St, Springfield</address>
+        <username>ishak *2</username>
+    </user>
+    <user>
+        <id>14</id>
+        <firstName>salim</firstName>
+        <lastName>AL AZAMI</lastName>
+        <email>test2@example.com</email>
+        <phoneNumber>0234567890</phoneNumber>
+        <address>123 Main St, Springfield</address>
+        <username>test 2 updated</username>
     </user>
 </users>

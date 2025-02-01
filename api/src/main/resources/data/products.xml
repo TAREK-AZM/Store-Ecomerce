@@ -72,4 +72,31 @@
         <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
         <category>Phone</category>
     </product>
+    <product>
+        <id>16</id>
+        <title>tarek arbi 2 updated</title>
+        <description>High-performance laptop (Updated)</description>
+        <price>1099.99</price>
+        <stockQuantity>5</stockQuantity>
+        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <category>Phone</category>
+    </product>
+    <product>
+        <id>17</id>
+        <title>tarek arbi 2 updated *3</title>
+        <description>High-performance laptop (Updated)</description>
+        <price>1099.99</price>
+        <stockQuantity>5</stockQuantity>
+        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <category>Phone</category>
+    </product>
+    <product>
+        <id>18</id>
+        <title>tarek arbi 3 *2 </title>
+        <description>High-performance laptop (Updated)</description>
+        <price>1099.99</price>
+        <stockQuantity>5</stockQuantity>
+        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
+        <category>Phone</category>
+    </product>
 </products>
