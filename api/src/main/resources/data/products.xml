@@ -1,102 +1,185 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <products>
+
     <product>
         <id>1</id>
-        <title>Smartphone X</title>
-        <description>A high-end smartphone with advanced features.</description>
-        <price>799.99</price>
-        <stockQuantity>50</stockQuantity>
-        <imageUrl>http://example.com/smartphone-x.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 1</title>
+        <description>High quality item</description>
+        <price>530.3</price>
+        <stockQuantity>49</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Mobile Devices</category>
     </product>
     <product>
         <id>2</id>
-        <title>Gaming Laptop</title>
-        <description>A powerful laptop designed for gaming and productivity.</description>
-        <price>1499.99</price>
-        <stockQuantity>10</stockQuantity>
-        <imageUrl>http://example.com/gaming-laptop.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 2</title>
+        <description>High quality item</description>
+        <price>394.44</price>
+        <stockQuantity>64</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Gaming and Entertainment</category>
     </product>
     <product>
         <id>3</id>
-        <title>Wireless Earbuds</title>
-        <description>Noise-cancelling wireless earbuds with long battery life.</description>
-        <price>199.99</price>
-        <stockQuantity>100</stockQuantity>
-        <imageUrl>http://example.com/wireless-earbuds.jpg</imageUrl>
-        <category>Laptob</category>
-    </product>
-    <product>
-        <id>4</id>
-        <title>4K Smart TV</title>
-        <description>A 55-inch 4K Ultra HD Smart TV with HDR support.</description>
-        <price>899.99</price>
-        <stockQuantity>15</stockQuantity>
-        <imageUrl>http://example.com/4k-smart-tv.jpg</imageUrl>
+        <title>Product 3</title>
+        <description>High quality item</description>
+        <price>1477.6</price>
+        <stockQuantity>20</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
         <category>Electronics</category>
     </product>
     <product>
+        <id>4</id>
+        <title>Product 4</title>
+        <description>High quality item</description>
+        <price>890.35</price>
+        <stockQuantity>46</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
+        <category>Computer Components and Accessories</category>
+    </product>
+    <product>
+        <id>5</id>
+        <title>Product 5</title>
+        <description>High quality item</description>
+        <price>1209.16</price>
+        <stockQuantity>69</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Computers and Laptops</category>
+    </product>
+    <product>
+        <id>6</id>
+        <title>Product 6</title>
+        <description>High quality item</description>
+        <price>747.23</price>
+        <stockQuantity>98</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Mobile Devices</category>
+    </product>
+    <product>
+        <id>7</id>
+        <title>Product 7</title>
+        <description>High quality item</description>
+        <price>686.28</price>
+        <stockQuantity>72</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Gaming and Entertainment</category>
+    </product>
+    <product>
+        <id>8</id>
+        <title>Product 8</title>
+        <description>High quality item</description>
+        <price>83.6</price>
+        <stockQuantity>25</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Electronics</category>
+    </product>
+    <product>
+        <id>9</id>
+        <title>Product 9</title>
+        <description>High quality item</description>
+        <price>1161.32</price>
+        <stockQuantity>37</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
+        <category>Computer Components and Accessories</category>
+    </product>
+    <product>
+        <id>10</id>
+        <title>Product 10</title>
+        <description>High quality item</description>
+        <price>1259.61</price>
+        <stockQuantity>36</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Computers and Laptops</category>
+    </product>
+    <product>
         <id>11</id>
-        <title>tarek arbi </title>
-        <description>High-performance laptop (Updated)</description>
-        <price>1099.99</price>
-        <stockQuantity>5</stockQuantity>
-        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 11</title>
+        <description>High quality item</description>
+        <price>719.01</price>
+        <stockQuantity>94</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Mobile Devices</category>
     </product>
     <product>
         <id>12</id>
-        <title>tarek arbi </title>
-        <description>High-performance laptop (Updated)</description>
-        <price>1099.99</price>
-        <stockQuantity>5</stockQuantity>
-        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 12</title>
+        <description>High quality item</description>
+        <price>264.75</price>
+        <stockQuantity>47</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Gaming and Entertainment</category>
     </product>
     <product>
         <id>13</id>
-        <title>tarek arbi </title>
-        <description>High-performance laptop (Updated)</description>
-        <price>1099.99</price>
-        <stockQuantity>5</stockQuantity>
-        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 13</title>
+        <description>High quality item</description>
+        <price>1131.99</price>
+        <stockQuantity>60</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Electronics</category>
     </product>
     <product>
         <id>14</id>
-        <title>tarek arbi </title>
-        <description>High-performance laptop (Updated)</description>
-        <price>1099.99</price>
-        <stockQuantity>5</stockQuantity>
-        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 14</title>
+        <description>High quality item</description>
+        <price>1448.41</price>
+        <stockQuantity>97</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
+        <category>Computer Components and Accessories</category>
+    </product>
+    <product>
+        <id>15</id>
+        <title>Product 15</title>
+        <description>High quality item</description>
+        <price>1024.31</price>
+        <stockQuantity>84</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Computers and Laptops</category>
     </product>
     <product>
         <id>16</id>
-        <title>tarek arbi 2 updated</title>
-        <description>High-performance laptop (Updated)</description>
-        <price>1099.99</price>
-        <stockQuantity>5</stockQuantity>
-        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 16</title>
+        <description>High quality item</description>
+        <price>899.56</price>
+        <stockQuantity>89</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Mobile Devices</category>
     </product>
     <product>
         <id>17</id>
-        <title>tarek arbi 2 updated *3</title>
-        <description>High-performance laptop (Updated)</description>
-        <price>1099.99</price>
-        <stockQuantity>5</stockQuantity>
-        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 17</title>
+        <description>High quality item</description>
+        <price>616.28</price>
+        <stockQuantity>50</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Gaming and Entertainment</category>
     </product>
     <product>
         <id>18</id>
-        <title>tarek arbi 3 *2 </title>
-        <description>High-performance laptop (Updated)</description>
-        <price>1099.99</price>
-        <stockQuantity>5</stockQuantity>
-        <imageUrl>http://example.com/laptop-updated.jpg</imageUrl>
-        <category>Phone</category>
+        <title>Product 18</title>
+        <description>High quality item</description>
+        <price>1366.0</price>
+        <stockQuantity>1</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Electronics</category>
     </product>
+    <product>
+        <id>19</id>
+        <title>Product 19</title>
+        <description>High quality item</description>
+        <price>1086.57</price>
+        <stockQuantity>39</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
+        <category>Computer Components and Accessories</category>
+    </product>
+    <product>
+        <id>20</id>
+        <title>Product 20</title>
+        <description>High quality item</description>
+        <price>1340.97</price>
+        <stockQuantity>63</stockQuantity>
+        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <category>Computers and Laptops</category>
+    </product>
+
 </products>

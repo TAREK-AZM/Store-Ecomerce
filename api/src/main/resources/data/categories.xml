@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
 <categories>
     <category>
-        <id>101</id>
+        <id>1</id>
+        <name>Computers and Laptops</name>
+        <description>Laptops, desktops, and accessories</description>
+        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+    </category>
+
+    <category>
+        <id>2</id>
+        <name>Mobile Devices</name>
+        <description>Smartphones and tablets</description>
+        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+    </category>
+
+    <category>
+        <id>3</id>
+        <name>Gaming and Entertainment</name>
+        <description>Gaming consoles and accessories</description>
+        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+    </category>
+
+    <category>
+        <id>4</id>
         <name>Electronics</name>
-        <description>Electronic devices</description>
-        <imageUrl>http://example.com/electronics.jpg</imageUrl>
+        <description>Home and office electronics</description>
+        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
     </category>
     <category>
-        <id>102</id>
-        <name>Clothing</name>
-        <description>Apparel and accessories</description>
-        <imageUrl>http://example.com/clothing.jpg</imageUrl>
-    </category>
-    <category>
-        <id>103</id>
-        <name>Books</name>
-        <description>Books and literature</description>
-        <imageUrl>http://example.com/books.jpg</imageUrl>
-    </category>
-    <category>
-        <id>104</id>
-        <name>Iphone pro max*7 updated</name>
-        <description> Update this this the category that specialized in the field of economy</description>
-        <imageUrl>http://www.google.com</imageUrl>
-    </category>
-    <category>
-        <id>105</id>
-        <name>pentalon updated</name>
-        <description> cette category est consacrer pour stocker des pontalons et les chomise</description>
-        <imageUrl>http://www.google.com</imageUrl>
+        <id>5</id>
+        <name>Computer Components and Accessories</name>
+        <description>Keyboards, mice, and storage</description>
+        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
     </category>
 </categories>
+
