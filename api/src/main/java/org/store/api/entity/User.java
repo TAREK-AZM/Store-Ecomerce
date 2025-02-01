@@ -4,10 +4,10 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
-import lombok.Data;
+
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Data;
 @Data
 @XmlRootElement(name = "user") // Root element for XML
 @XmlType(propOrder = {"id", "firstName", "lastName", "email","phoneNumber","address","username"})

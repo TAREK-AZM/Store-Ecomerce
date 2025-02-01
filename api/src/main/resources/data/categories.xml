@@ -20,8 +20,14 @@
     </category>
     <category>
         <id>104</id>
-        <name>Iphone pro max</name>
+        <name>Iphone pro max*7 updated</name>
         <description> Update this this the category that specialized in the field of economy</description>
+        <imageUrl>http://www.google.com</imageUrl>
+    </category>
+    <category>
+        <id>105</id>
+        <name>pentalon updated</name>
+        <description> cette category est consacrer pour stocker des pontalons et les chomise</description>
         <imageUrl>http://www.google.com</imageUrl>
     </category>
 </categories>

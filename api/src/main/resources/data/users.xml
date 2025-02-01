@@ -124,6 +124,6 @@
         <email>test2@example.com</email>
         <phoneNumber>0234567890</phoneNumber>
         <address>123 Main St, Springfield</address>
-        <username>test 2 updated</username>
+        <username>test 2 updated $$$$$$$$</username>
     </user>
 </users>

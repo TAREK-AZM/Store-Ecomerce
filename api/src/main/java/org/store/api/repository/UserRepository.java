@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserRepository {
+public class UserRepository implements GenericRepository<User,Long>{
 
     private static final String USERS_FILE = "src/main/resources/data/users.xml";
     private static final String USERS_XSD = "src/main/resources/data/users.xsd"; // Path to XSD
