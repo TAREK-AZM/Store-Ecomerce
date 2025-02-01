@@ -1,184 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
 <users>
     <user>
         <id>1</id>
-        <firstName>User1</firstName>
-        <lastName>Last1</lastName>
-        <email>user1@example.com</email>
-        <phoneNumber>0623185838</phoneNumber>
-        <address>499 Main St, City</address>
-        <username>user_1</username>
+        <firstName>Hamid</firstName>
+        <lastName>Elawarchani</lastName>
+        <email>Hamid@gmail.com</email>
+        <phoneNumber>0654987321</phoneNumber>
+        <address>Tanger_Dradeb</address>
+        <username>Hamid_EL</username>
     </user>
     <user>
         <id>2</id>
-        <firstName>User2</firstName>
-        <lastName>Last2</lastName>
-        <email>user2@example.com</email>
-        <phoneNumber>0680021274</phoneNumber>
-        <address>736 Main St, City</address>
-        <username>user_2</username>
+        <firstName>Saad</firstName>
+        <lastName>Kharoub</lastName>
+        <email>Saad@gmail.com</email>
+        <phoneNumber>0632659874</phoneNumber>
+        <address>Marrakech_daoudiat</address>
+        <username>Saad_02</username>
     </user>
     <user>
         <id>3</id>
-        <firstName>User3</firstName>
-        <lastName>Last3</lastName>
-        <email>user3@example.com</email>
-        <phoneNumber>0666884915</phoneNumber>
-        <address>841 Main St, City</address>
-        <username>user_3</username>
-    </user>
-    <user>
-        <id>4</id>
-        <firstName>User4</firstName>
-        <lastName>Last4</lastName>
-        <email>user4@example.com</email>
-        <phoneNumber>0645268784</phoneNumber>
-        <address>246 Main St, City</address>
-        <username>user_4</username>
-    </user>
-    <user>
-        <id>5</id>
-        <firstName>User5</firstName>
-        <lastName>Last5</lastName>
-        <email>user5@example.com</email>
-        <phoneNumber>0627891863</phoneNumber>
-        <address>52 Main St, City</address>
-        <username>user_5</username>
-    </user>
-    <user>
-        <id>6</id>
-        <firstName>User6</firstName>
-        <lastName>Last6</lastName>
-        <email>user6@example.com</email>
-        <phoneNumber>0668150198</phoneNumber>
-        <address>520 Main St, City</address>
-        <username>user_6</username>
-    </user>
-    <user>
-        <id>7</id>
-        <firstName>User7</firstName>
-        <lastName>Last7</lastName>
-        <email>user7@example.com</email>
-        <phoneNumber>0673485240</phoneNumber>
-        <address>205 Main St, City</address>
-        <username>user_7</username>
-    </user>
-    <user>
-        <id>8</id>
-        <firstName>User8</firstName>
-        <lastName>Last8</lastName>
-        <email>user8@example.com</email>
-        <phoneNumber>0679633937</phoneNumber>
-        <address>145 Main St, City</address>
-        <username>user_8</username>
-    </user>
-    <user>
-        <id>9</id>
-        <firstName>User9</firstName>
-        <lastName>Last9</lastName>
-        <email>user9@example.com</email>
-        <phoneNumber>0614701753</phoneNumber>
-        <address>16 Main St, City</address>
-        <username>user_9</username>
-    </user>
-    <user>
-        <id>10</id>
-        <firstName>User10</firstName>
-        <lastName>Last10</lastName>
-        <email>user10@example.com</email>
-        <phoneNumber>0641805134</phoneNumber>
-        <address>341 Main St, City</address>
-        <username>user_10</username>
-    </user>
-    <user>
-        <id>11</id>
-        <firstName>User11</firstName>
-        <lastName>Last11</lastName>
-        <email>user11@example.com</email>
-        <phoneNumber>0623277424</phoneNumber>
-        <address>292 Main St, City</address>
-        <username>user_11</username>
-    </user>
-    <user>
-        <id>12</id>
-        <firstName>User12</firstName>
-        <lastName>Last12</lastName>
-        <email>user12@example.com</email>
-        <phoneNumber>0659090189</phoneNumber>
-        <address>398 Main St, City</address>
-        <username>user_12</username>
-    </user>
-    <user>
-        <id>13</id>
-        <firstName>User13</firstName>
-        <lastName>Last13</lastName>
-        <email>user13@example.com</email>
-        <phoneNumber>0691667860</phoneNumber>
-        <address>368 Main St, City</address>
-        <username>user_13</username>
-    </user>
-    <user>
-        <id>14</id>
-        <firstName>User14</firstName>
-        <lastName>Last14</lastName>
-        <email>user14@example.com</email>
-        <phoneNumber>0692173042</phoneNumber>
-        <address>418 Main St, City</address>
-        <username>user_14</username>
-    </user>
-    <user>
-        <id>15</id>
-        <firstName>User15</firstName>
-        <lastName>Last15</lastName>
-        <email>user15@example.com</email>
-        <phoneNumber>0642673514</phoneNumber>
-        <address>356 Main St, City</address>
-        <username>user_15</username>
-    </user>
-    <user>
-        <id>16</id>
-        <firstName>User16</firstName>
-        <lastName>Last16</lastName>
-        <email>user16@example.com</email>
-        <phoneNumber>0689650477</phoneNumber>
-        <address>466 Main St, City</address>
-        <username>user_16</username>
-    </user>
-    <user>
-        <id>17</id>
-        <firstName>User17</firstName>
-        <lastName>Last17</lastName>
-        <email>user17@example.com</email>
-        <phoneNumber>0644788147</phoneNumber>
-        <address>697 Main St, City</address>
-        <username>user_17</username>
-    </user>
-    <user>
-        <id>18</id>
-        <firstName>User18</firstName>
-        <lastName>Last18</lastName>
-        <email>user18@example.com</email>
-        <phoneNumber>0667709250</phoneNumber>
-        <address>419 Main St, City</address>
-        <username>user_18</username>
-    </user>
-    <user>
-        <id>19</id>
-        <firstName>User19</firstName>
-        <lastName>Last19</lastName>
-        <email>user19@example.com</email>
-        <phoneNumber>0650616312</phoneNumber>
-        <address>589 Main St, City</address>
-        <username>user_19</username>
-    </user>
-    <user>
-        <id>20</id>
-        <firstName>User20</firstName>
-        <lastName>Last20</lastName>
-        <email>user20@example.com</email>
-        <phoneNumber>0610022819</phoneNumber>
-        <address>295 Main St, City</address>
-        <username>user_20</username>
+        <firstName>Halima</firstName>
+        <lastName>Aboudi</lastName>
+        <email>Halima@gmail.com</email>
+        <phoneNumber>0612356479</phoneNumber>
+        <address>Casablanca_Sidi-Maarouf</address>
+        <username>Halima_Ab</username>
     </user>
 </users>

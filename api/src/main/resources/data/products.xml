@@ -1,185 +1,93 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <products>
-
     <product>
-        <id>1</id>
-        <title>Product 1</title>
-        <description>High quality item</description>
-        <price>530.3</price>
-        <stockQuantity>49</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <id>2</id>
+        <title>iphone 15 pro</title>
+        <description>1To , Toute les couleurs</description>
+        <price>756.0</price>
+        <stockQuantity>8</stockQuantity>
+        <imageUrl>https://cdn.dxomark.com/wp-content/uploads/medias/post-157467/Apple-iPhone-15-Pro_-natural_featured-image-packshot-review.jpg</imageUrl>
         <category>Mobile Devices</category>
     </product>
     <product>
-        <id>2</id>
-        <title>Product 2</title>
-        <description>High quality item</description>
-        <price>394.44</price>
-        <stockQuantity>64</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Gaming and Entertainment</category>
+        <id>1</id>
+        <title>iphone 16 pro max</title>
+        <description>512Go , Golden</description>
+        <price>879.0</price>
+        <stockQuantity>21</stockQuantity>
+        <imageUrl>data:image/jpeg;base64,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</imageUrl>
+        <category>Mobile Devices</category>
     </product>
     <product>
         <id>3</id>
-        <title>Product 3</title>
-        <description>High quality item</description>
-        <price>1477.6</price>
-        <stockQuantity>20</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Electronics</category>
-    </product>
-    <product>
-        <id>4</id>
-        <title>Product 4</title>
-        <description>High quality item</description>
-        <price>890.35</price>
-        <stockQuantity>46</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
-        <category>Computer Components and Accessories</category>
-    </product>
-    <product>
-        <id>5</id>
-        <title>Product 5</title>
-        <description>High quality item</description>
-        <price>1209.16</price>
-        <stockQuantity>69</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <title>Macbook air m2</title>
+        <description>laptop high performance</description>
+        <price>1560.0</price>
+        <stockQuantity>6</stockQuantity>
+        <imageUrl>https://www.bhphotovideo.com/images/fb/apple_mxcv3ll_a_13_6_macbook_air_m3_1814990.jpg</imageUrl>
         <category>Computers and Laptops</category>
     </product>
     <product>
-        <id>6</id>
-        <title>Product 6</title>
-        <description>High quality item</description>
-        <price>747.23</price>
-        <stockQuantity>98</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Mobile Devices</category>
+        <id>4</id>
+        <title>Hp maven 5</title>
+        <description>Laptop Hp 1To nvem , 16Go ram , Nvidia GTX 1060Ti</description>
+        <price>1099.0</price>
+        <stockQuantity>15</stockQuantity>
+        <imageUrl>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNPkIzbCliA21Ho9XE-gmP2mHiHwubtJjlww&amp;s</imageUrl>
+        <category>Computers and Laptops</category>
     </product>
     <product>
-        <id>7</id>
-        <title>Product 7</title>
-        <description>High quality item</description>
-        <price>686.28</price>
-        <stockQuantity>72</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <id>5</id>
+        <title>PC Gamer MSI</title>
+        <description>PC complet</description>
+        <price>1399.0</price>
+        <stockQuantity>8</stockQuantity>
+        <imageUrl>https://oechsle.vteximg.com.br/arquivos/ids/16322673-998-998/image-3dd13d30a3b84710b769c3de1772266c.jpg?v=638313100342730000</imageUrl>
         <category>Gaming and Entertainment</category>
     </product>
     <product>
+        <id>6</id>
+        <title>Razer Gamer</title>
+        <description>PC Gamer , full option</description>
+        <price>3099.0</price>
+        <stockQuantity>12</stockQuantity>
+        <imageUrl>https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/15901387/1.0.0.1473183039.jpg?quality=90&amp;strip=all&amp;crop=0,0,100,100</imageUrl>
+        <category>Gaming and Entertainment</category>
+    </product>
+    <product>
+        <id>7</id>
+        <title>Ps5 controller</title>
+        <description>Ps5 controller , white , full option</description>
+        <price>59.0</price>
+        <stockQuantity>35</stockQuantity>
+        <imageUrl>https://i5.walmartimages.com/seo/Sony-PS5-DualSense-Edge-Wireless-Controller_657e4493-944a-4782-9654-f8e024752c67.8319804d8bf7e5311004fecfb9f0e7f4.png</imageUrl>
+        <category>Electronics</category>
+    </product>
+    <product>
         <id>8</id>
-        <title>Product 8</title>
-        <description>High quality item</description>
-        <price>83.6</price>
-        <stockQuantity>25</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
+        <title>Beat Casque</title>
+        <description>Casque Bluetooth , 5h autonomie </description>
+        <price>199.0</price>
+        <stockQuantity>7</stockQuantity>
+        <imageUrl>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDZQ9o5M8Z5cyORo-90TuApZ4hsyxU1mvw-Q&amp;s</imageUrl>
         <category>Electronics</category>
     </product>
     <product>
         <id>9</id>
-        <title>Product 9</title>
-        <description>High quality item</description>
-        <price>1161.32</price>
-        <stockQuantity>37</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
+        <title>Clavier RGB</title>
+        <description>Clavier couleurs , dynamique et compatible avec toute les ordinateurs</description>
+        <price>29.0</price>
+        <stockQuantity>16</stockQuantity>
+        <imageUrl>https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/keyboard/aw-pro-wireless-keyboard/media-galleries/dsom/keyboard-alienware-pro-bk-gallery-1.psd?qlt=90,0&amp;op_usm=1.75,0.3,2,0&amp;resMode=sharp&amp;pscan=auto&amp;fmt=png-alpha&amp;hei=500</imageUrl>
         <category>Computer Components and Accessories</category>
     </product>
     <product>
         <id>10</id>
-        <title>Product 10</title>
-        <description>High quality item</description>
-        <price>1259.61</price>
-        <stockQuantity>36</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Computers and Laptops</category>
-    </product>
-    <product>
-        <id>11</id>
-        <title>Product 11</title>
-        <description>High quality item</description>
-        <price>719.01</price>
-        <stockQuantity>94</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Mobile Devices</category>
-    </product>
-    <product>
-        <id>12</id>
-        <title>Product 12</title>
-        <description>High quality item</description>
-        <price>264.75</price>
-        <stockQuantity>47</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Gaming and Entertainment</category>
-    </product>
-    <product>
-        <id>13</id>
-        <title>Product 13</title>
-        <description>High quality item</description>
-        <price>1131.99</price>
-        <stockQuantity>60</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Electronics</category>
-    </product>
-    <product>
-        <id>14</id>
-        <title>Product 14</title>
-        <description>High quality item</description>
-        <price>1448.41</price>
-        <stockQuantity>97</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
+        <title>Mouse Rizer</title>
+        <description>Mouse gamer , compatible avec toute les Pcs</description>
+        <price>43.0</price>
+        <stockQuantity>24</stockQuantity>
+        <imageUrl>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiKv2ea0wHZhau1_HoYQqJlny9PeJsg4f91g&amp;s</imageUrl>
         <category>Computer Components and Accessories</category>
     </product>
-    <product>
-        <id>15</id>
-        <title>Product 15</title>
-        <description>High quality item</description>
-        <price>1024.31</price>
-        <stockQuantity>84</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Computers and Laptops</category>
-    </product>
-    <product>
-        <id>16</id>
-        <title>Product 16</title>
-        <description>High quality item</description>
-        <price>899.56</price>
-        <stockQuantity>89</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/71IPX8vgdjL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Mobile Devices</category>
-    </product>
-    <product>
-        <id>17</id>
-        <title>Product 17</title>
-        <description>High quality item</description>
-        <price>616.28</price>
-        <stockQuantity>50</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/81ulNkvUJuL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Gaming and Entertainment</category>
-    </product>
-    <product>
-        <id>18</id>
-        <title>Product 18</title>
-        <description>High quality item</description>
-        <price>1366.0</price>
-        <stockQuantity>1</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/41ALqtByTOL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Electronics</category>
-    </product>
-    <product>
-        <id>19</id>
-        <title>Product 19</title>
-        <description>High quality item</description>
-        <price>1086.57</price>
-        <stockQuantity>39</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/31dpPIDghyL._SR480,440_.jpg</imageUrl>
-        <category>Computer Components and Accessories</category>
-    </product>
-    <product>
-        <id>20</id>
-        <title>Product 20</title>
-        <description>High quality item</description>
-        <price>1340.97</price>
-        <stockQuantity>63</stockQuantity>
-        <imageUrl>https://m.media-amazon.com/images/I/71Zgz+0ponL._AC_UL640_FMwebp_QL65_.jpg</imageUrl>
-        <category>Computers and Laptops</category>
-    </product>
-
 </products>

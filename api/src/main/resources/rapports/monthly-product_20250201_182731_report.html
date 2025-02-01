@@ -1,0 +1,174 @@
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Monthly Store Report</title>
+        <style>
+                    body {
+                    font-family: 'Arial', sans-serif;
+                    margin: 20px;
+                    background-color: #f5f5f5;
+                    color: #333;
+                    }
+                    h1, h2 {
+                    color: #0056b3;
+                    }
+                    table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-top: 20px;
+                    background-color: #ffffff;
+                    border: 1px solid #ddd;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    border-radius: 8px;
+                    overflow: hidden;
+                    }
+                    th {
+                    background-color: #0056b3;
+                    color: #ffffff;
+                    padding: 10px;
+                    border: 1px solid #0056b3;
+                    text-align: left;
+                    }
+                    td {
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    text-align: left;
+                    background-color: #fafafa;
+                    }
+                    tr:nth-child(even) {
+                    background-color: #f9f9f9;
+                    }
+                    .summary {
+                    margin: 20px 0;
+                    padding: 15px;
+                    background-color: #e3f2fd;
+                    border-left: 5px solid #0056b3;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    line-height: 1.6;
+                    }
+                    .summary h2 {
+                    margin: 0 0 10px;
+                    }
+                    .low-stock {
+                    background-color: #ffcccc !important;
+                    }
+                    .low-stock td {
+                    color: #cc0000;
+                    font-weight: bold;
+                    }
+                    a {
+                    color: #0056b3;
+                    text-decoration: none;
+                    }
+                    a:hover {
+                    text-decoration: underline;
+                    }
+                </style>
+    </head>
+    <body>
+        <h1>&#128203; Monthly Store Report</h1>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>
+                <strong>Total Products:</strong>20
+            </p>
+            <p>
+                <strong>Total Items in Stock:</strong>1140
+            </p>
+            <p>
+                <strong>Low Stock Items (Quantity &le; 10):</strong>1
+            </p>
+        </div>
+        <h2>&#128230; Product Inventory</h2>
+        <table>
+            <tr>
+                <th>ID</th><th>Title</th><th>Category</th><th>Price ($)</th><th>Stock</th>
+            </tr>
+            <tr>
+                <td>4</td><td>Product 4</td><td>Computer Components and Accessories</td><td>890.35</td><td>46</td>
+            </tr>
+            <tr>
+                <td>9</td><td>Product 9</td><td>Computer Components and Accessories</td><td>1,161.32</td><td>37</td>
+            </tr>
+            <tr>
+                <td>14</td><td>Product 14</td><td>Computer Components and Accessories</td><td>1,448.41</td><td>97</td>
+            </tr>
+            <tr>
+                <td>19</td><td>Product 19</td><td>Computer Components and Accessories</td><td>1,086.57</td><td>39</td>
+            </tr>
+            <tr>
+                <td>5</td><td>Product 5</td><td>Computers and Laptops</td><td>1,209.16</td><td>69</td>
+            </tr>
+            <tr>
+                <td>10</td><td>Product 10</td><td>Computers and Laptops</td><td>1,259.61</td><td>36</td>
+            </tr>
+            <tr>
+                <td>15</td><td>Product 15</td><td>Computers and Laptops</td><td>1,024.31</td><td>84</td>
+            </tr>
+            <tr>
+                <td>20</td><td>Product 20</td><td>Computers and Laptops</td><td>1,340.97</td><td>63</td>
+            </tr>
+            <tr>
+                <td>3</td><td>Product 3</td><td>Electronics</td><td>1,477.60</td><td>20</td>
+            </tr>
+            <tr>
+                <td>8</td><td>Product 8</td><td>Electronics</td><td>83.60</td><td>25</td>
+            </tr>
+            <tr>
+                <td>13</td><td>Product 13</td><td>Electronics</td><td>1,131.99</td><td>60</td>
+            </tr>
+            <tr class="low-stock">
+                <td>18</td><td>Product 18</td><td>Electronics</td><td>1,366.00</td><td>1</td>
+            </tr>
+            <tr>
+                <td>2</td><td>Product 2</td><td>Gaming and Entertainment</td><td>394.44</td><td>64</td>
+            </tr>
+            <tr>
+                <td>7</td><td>Product 7</td><td>Gaming and Entertainment</td><td>686.28</td><td>72</td>
+            </tr>
+            <tr>
+                <td>12</td><td>Product 12</td><td>Gaming and Entertainment</td><td>264.75</td><td>47</td>
+            </tr>
+            <tr>
+                <td>17</td><td>Product 17</td><td>Gaming and Entertainment</td><td>616.28</td><td>50</td>
+            </tr>
+            <tr>
+                <td>1</td><td>Product 1</td><td>Mobile Devices</td><td>530.30</td><td>49</td>
+            </tr>
+            <tr>
+                <td>6</td><td>Product 6</td><td>Mobile Devices</td><td>747.23</td><td>98</td>
+            </tr>
+            <tr>
+                <td>11</td><td>Product 11</td><td>Mobile Devices</td><td>719.01</td><td>94</td>
+            </tr>
+            <tr>
+                <td>16</td><td>Product 16</td><td>Mobile Devices</td><td>899.56</td><td>89</td>
+            </tr>
+        </table>
+        <h2>&#128202; Category Summary</h2>
+        <table>
+            <tr>
+                <th>Category</th><th>Number of Products</th><th>Total Stock</th>
+            </tr>
+            <tr>
+                <td>Mobile Devices</td><td>4</td><td>330</td>
+            </tr>
+            <tr>
+                <td>Gaming and Entertainment</td><td>4</td><td>233</td>
+            </tr>
+            <tr>
+                <td>Electronics</td><td>4</td><td>106</td>
+            </tr>
+            <tr>
+                <td>Computer Components and Accessories</td><td>4</td><td>219</td>
+            </tr>
+            <tr>
+                <td>Computers and Laptops</td><td>4</td><td>252</td>
+            </tr>
+            <tr>
+                <td>Mobile Devices</td><td>4</td><td>330</td>
+            </tr>
+        </table>
+    </body>
+</html>
